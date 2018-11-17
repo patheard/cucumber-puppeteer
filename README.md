@@ -14,4 +14,4 @@ npm t
 
 ### License and Credits
 
-This code is licensed under the MIT license. See LICENSE. Credits - Anephenix Ltd.
+This code is licensed under the MIT license.
