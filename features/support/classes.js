@@ -11,13 +11,16 @@ class FeatureScope {
         return this.feature !== currentFeature;
     }
 
-    async init(currentFeature){    
-        this.page = null;
-        this.feature = currentFeature;
+    async init(currentFeature){
 
         if(this.browser)
-        this.browser.close();
+            await this.browser.close();
 
+        if(this.page)
+            await this.page.close();
+
+        this.page = null;
+        this.feature = currentFeature;
         this.browser = await puppeteer.launch({
             args: ['--no-sandbox'], 
             ignoreHTTPSErrors: true
@@ -25,6 +28,14 @@ class FeatureScope {
     }
 }
 
+class World {
+    constructor() {
+        this.page = null;
+        this.browser = null;
+    }
+} 
+
 module.exports = {
-    FeatureScope
+    FeatureScope,
+    World
 };

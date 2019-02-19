@@ -1,6 +1,9 @@
 // Dependencies
-const { Before, After, BeforeAll, AfterAll } = require('cucumber');
-const { FeatureScope } = require('./support/classes');
+const { Before, After, AfterAll, setDefaultTimeout, setWorldConstructor } = require('cucumber');
+const { FeatureScope, World } = require('./support/classes');
+
+setDefaultTimeout(20 * 1000);
+setWorldConstructor(World)
 
 const featureScope = new FeatureScope();
 
