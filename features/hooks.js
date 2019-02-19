@@ -1,27 +1,22 @@
-/*eslint no-console: ["error", { allow: ["log"] }] */
 // Dependencies
-const { After, Before, AfterAll } = require('cucumber');
-const scope = require('./support/scope');
+const { Before, After, BeforeAll, AfterAll } = require('cucumber');
+const { FeatureScope } = require('./support/classes');
 
-// Here is where you might clean up database tables to have a clean slate before the tests run
-// Before(async () => {
-// });
+const featureScope = new FeatureScope();
 
-// Here we clean up the browser session
-After(async () => {
-  if (scope.browser && scope.context.currentPage) {
-    const cookies = await scope.context.currentPage.cookies();
-    if (cookies && cookies.length > 0) {
-      await scope.context.currentPage.deleteCookie(...cookies);
-    }
-    await scope.context.currentPage.close();
-    scope.context.currentPage = null;
-  }
+Before(async function(scenario) {
+  const currentFeature = scenario.sourceLocation.uri;
+  if(featureScope.isNewFeature(currentFeature))
+    await featureScope.init(currentFeature);
+  
+  this.page = featureScope.page;
+  this.browser = featureScope.browser;
 });
 
-AfterAll(async () => {
-  if (scope.browser) await scope.browser.close();
-  // If you have your API and Web servers running, you can shut them down afterwards
-  // scope.api.shutdown(() => console.log('\nAPI is shut down'));
-  // scope.web.shutdown(() => console.log('Web is shut down'));
+After(async function(){
+  featureScope.page = this.page;
+});
+
+AfterAll(async function() {
+  await featureScope.browser.close();
 });

@@ -1,27 +1,29 @@
 {
-  "name": "cucumber-and-puppeteer",
+  "name": "cucumber-puppeteer",
   "version": "1.0.0",
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test npx cucumber-js --no-strict"
+    "test": "set NODE_ENV=test && npx cucumber-js -f node_modules/cucumber-pretty"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anephenix/cucumber-and-puppeteer.git"
+    "url": "git+https://github.com/patheard/cucumber-and-puppeteer.git"
   },
   "keywords": [
     "cucumber",
     "puppeteer"
   ],
-  "author": "Paul Jensen <paul@anephenix.com>",
+  "author": "Pat Heard <patrick.heard@tpsgc-pwgsc.gc.ca>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anephenix/cucumber-and-puppeteer/issues"
+    "url": "https://github.com/patheard/cucumber-and-puppeteer/issues"
   },
-  "homepage": "https://github.com/anephenix/cucumber-and-puppeteer#readme",
+  "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
   "dependencies": {
-    "cucumber": "^5.0.2",
-    "puppeteer": "^1.10.0"
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0",
+    "cucumber-pretty": "^1.5.0",
+    "puppeteer": "^1.12.2"
   }
 }
