@@ -24,14 +24,14 @@ class PrettyFormatter extends SummaryFormatter {
 
   logTestCaseName({sourceLocation}) {
     const {pickle} = this.eventDataCollector.getTestCaseData(sourceLocation)
-    this.log(this.scenarioCount++ + ') Scenario: ' + pickle.name + ' ' + this.colorFns['location'](sourceLocation.uri) + '\n');
+    this.log(`${this.scenarioCount++}) Scenario: ${pickle.name} ${this.colorFns['location'](sourceLocation.uri)}\n`);
   }
 
   logTestStep({testCase, index, result}) {
     const {gherkinKeyword, pickleStep} = this.eventDataCollector.getTestStepData({testCase, index});
     const {status} = result;
     if (pickleStep) {
-      this.log(this.colorFns[status](STATUS_CHARACTER_MAPPING[status]) + ' ' + gherkinKeyword + pickleStep.text + '\n');
+      this.log(`${this.colorFns[status](STATUS_CHARACTER_MAPPING[status])}  ${gherkinKeyword}${pickleStep.text}\n`);
     }
   }
 
