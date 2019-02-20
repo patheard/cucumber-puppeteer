@@ -31,7 +31,7 @@ class PrettyFormatter extends SummaryFormatter {
     const {gherkinKeyword, pickleStep} = this.eventDataCollector.getTestStepData({testCase, index});
     const {status} = result;
     if (pickleStep) {
-      this.log(`${this.colorFns[status](STATUS_CHARACTER_MAPPING[status])}  ${gherkinKeyword}${pickleStep.text}\n`);
+      this.log(`   ${this.colorFns[status](STATUS_CHARACTER_MAPPING[status])} ${gherkinKeyword}${pickleStep.text}\n`);
     }
   }
 
