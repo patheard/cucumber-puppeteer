@@ -24,7 +24,7 @@ class PrettyFormatter extends SummaryFormatter {
 
   logTestCaseName({sourceLocation}) {
     const {pickle} = this.eventDataCollector.getTestCaseData(sourceLocation)
-    this.log(`${this.scenarioCount++}) Scenario: ${pickle.name} ${this.colorFns['location'](sourceLocation.uri)}\n`);
+    this.log(`${this.scenarioCount++}) Scenario: ${pickle.name} ${this.colorFns['location'](sourceLocation.uri + ':' + sourceLocation.line)}\n`);
   }
 
   logTestStep({testCase, index, result}) {

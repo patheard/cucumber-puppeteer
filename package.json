@@ -4,7 +4,9 @@
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
   "scripts": {
-    "test": "set NODE_ENV=test && npx cucumber-js --format ./features/support/classes/PrettyFormatter"
+    "start": "set NODE_ENV=test && npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
+    "test": "set NODE_ENV=test && jest",
+    "test-server": "http-server ./test/html &"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,9 @@
     "chai": "^4.2.0",
     "cucumber": "^5.1.0",
     "puppeteer": "^1.12.2"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "jest": "^24.1.0"
   }
 }

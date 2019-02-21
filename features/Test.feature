@@ -6,8 +6,11 @@ Feature: Test
   Scenario: Visit a website
     Given I open the url "https://e-qa.gcdocs.gc.ca/otcs/llisapi.dll?func=llworkspace"
     Then  I expect that the title is "Sign in - GCdocs - E QA"
-    And   the element ".button.button-lg" is visible
+    And   I expect the element ".button.button-lg" is visible
 
   Scenario: Check for element existence
-    Then  the element ".button.button-lg" is visible    
+    Then  I expect the element ".button.button-lg" is visible
+
+  Scenario: Check for hidden elements
+    Then  I expect the element ".button.button-lg" is not visible            
   

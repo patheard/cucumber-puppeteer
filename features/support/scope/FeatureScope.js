@@ -26,24 +26,10 @@ class FeatureScope {
         this.page = null;
         this.feature = currentFeature;
         this.browser = await puppeteer.launch({
-            args: ['--no-sandbox'], 
+            args: ['--no-sandbox', '--disable-dev-shm-usage'], 
             ignoreHTTPSErrors: true
         });
     }
 }
 
-/**
- * Common context for each test scenario, provided to all test steps and Before/After hooks as `this`
- */
-class ScenarioScope {
-    constructor() {        
-        this.browser = null;    // web browser, used for all scenarios in the feature file
-        this.page = null;       // current web page
-    }
-} 
-
-
-module.exports = {
-    FeatureScope,
-    ScenarioScope
-};
+module.exports = FeatureScope;

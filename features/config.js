@@ -3,7 +3,8 @@
  * https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md
  */
 const { After, AfterAll, Before, setDefaultTimeout, setWorldConstructor } = require('cucumber');
-const { FeatureScope, ScenarioScope } = require('./support/classes');
+const FeatureScope = require('./support/scope/FeatureScope');
+const ScenarioScope = require('./support/scope/ScenarioScope');
 
 // Timeout, in milliseconds, for puppeteer actions
 setDefaultTimeout(10 * 1000);
