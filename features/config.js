@@ -4,13 +4,13 @@
  */
 const { After, AfterAll, Before, setDefaultTimeout, setWorldConstructor } = require('cucumber');
 const FeatureScope = require('./support/scope/FeatureScope');
-const ScenarioScope = require('./support/scope/ScenarioScope');
+const BrowserScope = require('./support/scope/BrowserScope');
 
 // Timeout, in milliseconds, for puppeteer actions
 setDefaultTimeout(10 * 1000);
 
 // `ScenarioScope` is provided to all hooks and test steps in a scenario as `this`
-setWorldConstructor(ScenarioScope)
+setWorldConstructor(BrowserScope)
 
 // Keep a consistent web browser and page for all scenarios in a feature file.
 const featureScope = new FeatureScope();
@@ -23,16 +23,16 @@ Before(async function(scenario) {
   if(featureScope.isNewFeature(currentFeature))
     await featureScope.init(currentFeature);
   
-  this.page = featureScope.page;
-  this.browser = featureScope.browser;
+  this.page = featureScope.browserScope.page;
+  this.browser = featureScope.browserScope.browser;
 });
 
 // After hook for each scenario
 After(async function(){
-  featureScope.page = this.page;
+  featureScope.browserScope = this;
 });
 
 // After all feature tests are complete
 AfterAll(async function() {
-  await featureScope.browser.close();
+  await featureScope.browserScope.close();
 });

@@ -1,16 +1,16 @@
-Feature: Test
-  In order to see how this test setup runs
+Feature: Cucumber Steps
+  In order write BDD tests
   As a developer
-  I want to visit a website and see what happens when the code runs
+  I want define and test Given, Then and When steps
 
-  Scenario: Visit a website
-    Given I open the url "https://e-qa.gcdocs.gc.ca/otcs/llisapi.dll?func=llworkspace"
-    Then  I expect that the title is "Sign in - GCdocs - E QA"
-    And   I expect the element ".button.button-lg" is visible
+  Scenario: Check for a visible element
+    Given I open the url "http://localhost:8080/isVisible.html"
+    Then  I expect that the title is "isVisible - Test"
+    And   I expect the element ".visible" is visible
 
-  Scenario: Check for element existence
-    Then  I expect the element ".button.button-lg" is visible
+  Scenario: Check for a hidden element
+    Then  I expect the element ".hidden" is not visible
 
-  Scenario: Check for hidden elements
-    Then  I expect the element ".button.button-lg" is not visible            
+  Scenario: Check for non-existent alement
+    Then  I expect the element ".bueller" is not visible            
   
