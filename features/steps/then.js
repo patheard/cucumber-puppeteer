@@ -1,6 +1,6 @@
 const { Then } = require('cucumber');
 const checkTitle = require('../support/check/checkTitle');
-const isVisible = require('../support/action/isVisible');
+const isVisible = require('../support/check/isVisible');
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 

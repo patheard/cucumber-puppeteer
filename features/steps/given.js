@@ -1,6 +1,6 @@
 const { Given } = require('cucumber');
 const openUrl = require('../support/action/openUrl');
-const isVisible = require('../support/action/isVisible');
+const isVisible = require('../support/check/isVisible');
 
 Given(
     /^I open the url "([^"]*)?"$/, 
