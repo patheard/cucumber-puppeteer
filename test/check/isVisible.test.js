@@ -1,4 +1,4 @@
-const isVisible = require('../../features/support/action/isVisible');
+const isVisible = require('../../features/support/check/isVisible');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
 

@@ -3,11 +3,11 @@ const { assert } = require('chai');
 /**
  * Determine if an element is visible.
  * @param {String} selector CSS selector of the element.
- * @param {String} falseCase The string "not" when checking for a hidden element.
+ * @param {String} not Null when checking for visible, otherwise checking for hidden.
  */
-module.exports = async function(selector, falseCase) {
+module.exports = async function(selector, not) {
     let error = null;
-    const visibilityProp = falseCase ? 'hidden' : 'visible';
+    const visibilityProp = not ? 'hidden' : 'visible';
     const options = {timeout: 1000};
     options[visibilityProp] = true;
 
