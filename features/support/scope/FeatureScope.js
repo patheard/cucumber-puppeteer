@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const BrowserScope = require('./BrowserScope');
 
 /**
  * Common context for all scenarios in a feature file.  Allows us to keep the same browser and
@@ -6,8 +6,7 @@ const puppeteer = require('puppeteer');
  */
 class FeatureScope {
     constructor(){
-        this.browser = null;
-        this.page = null;
+        this.browserScope = null;
         this.feature = null;
     }
 
@@ -16,19 +15,9 @@ class FeatureScope {
     }
 
     async init(currentFeature){
-
-        if(this.page)
-            await this.page.close();
-
-        if(this.browser)
-            await this.browser.close();
-
-        this.page = null;
         this.feature = currentFeature;
-        this.browser = await puppeteer.launch({
-            args: ['--no-sandbox', '--disable-dev-shm-usage'], 
-            ignoreHTTPSErrors: true
-        });
+        this.browserScope = new BrowserScope();
+        await this.browserScope.init();
     }
 }
 
