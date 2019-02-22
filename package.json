@@ -7,7 +7,7 @@
     "start": "npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
     "test": "jest --verbose",
     "test-server": "http-server -p 8080 ./test/html",
-    "text-coverage": "codecov"
+    "test-coverage": "codecov"
   },
   "repository": {
     "type": "git",
