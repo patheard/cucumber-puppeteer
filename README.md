@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/patheard/cucumber-and-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-and-puppeteer)
+
 # Cucumber and Puppeteer
 
 A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer
