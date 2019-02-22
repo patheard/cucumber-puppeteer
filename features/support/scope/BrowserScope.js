@@ -20,9 +20,6 @@ class BrowserScope {
     }
 
     async close(){
-        if(this.page)
-            await this.page.close();
-
         if(this.browser)
             await this.browser.close();
         
