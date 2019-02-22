@@ -1,11 +1,11 @@
 {
-  "name": "cucumber-puppeteer",
+  "name": "cucumber-and-puppeteer",
   "version": "1.0.0",
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
   "scripts": {
     "start": "npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
-    "test": "jest --verbose",
+    "test": "jest --verbose && codecov",
     "test-server": "http-server -p 8080 ./test/html"
   },
   "repository": {
@@ -28,7 +28,12 @@
     "puppeteer": "^1.12.2"
   },
   "devDependencies": {
+    "codecov": "^3.2.0",
     "http-server": "^0.11.1",
     "jest": "^24.1.0"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
