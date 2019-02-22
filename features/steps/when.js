@@ -1,10 +1,11 @@
-const { Given } = require('cucumber');
-const isVisible = require('../support/check/isVisible');
+const { When } = require('cucumber');
+const openUrl = require('../support/action/openUrl');
 
-Given(
-    /^the element "([^"]*)?" is( not)* visible$/,
-    isVisible
+When(
+    /^I open the url "([^"]*)?"$/, 
+    openUrl
 );
+
 /*
 Given(
     /^the element "([^"]*)?" is( not)* enabled$/,

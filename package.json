@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
-    "test": "jest --verbose && codecov",
-    "test-server": "http-server -p 8080 ./test/html"
+    "test": "jest --verbose",
+    "test-server": "http-server -p 8080 ./test/html",
+    "text-coverage": "codecov"
   },
   "repository": {
     "type": "git",
