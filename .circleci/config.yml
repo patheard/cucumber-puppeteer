@@ -7,15 +7,9 @@ jobs:
       - image: patheard/node-puppeteer:latest
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - node_modules
 
-  # Behaviour tests
+  # Behaviour tests against locally running service using JEST
   behaviour_test:
     docker:
       - image: patheard/node-puppeteer:latest
@@ -42,7 +36,7 @@ jobs:
           command: |
             npm run test-server &
             wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null # Wait until the website is up before continuing
-            npm test      
+            npm test
 
 # Define job flow, dependencies and filters (when the job should run)
 workflows:
