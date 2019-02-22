@@ -4,5 +4,5 @@
  */
 module.exports = async function(url) {
     this.page = await this.browser.newPage();
-    await this.page.goto(url, {waitUntil: 'networkidle0'});
+    return await this.page.goto(url, {waitUntil: 'networkidle0'});
 };

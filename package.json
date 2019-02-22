@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "set NODE_ENV=test && npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
-    "test": "set NODE_ENV=test && jest",
+    "test": "set NODE_ENV=test && jest --verbose",
     "test-server": "http-server ./test/html &"
   },
   "repository": {
