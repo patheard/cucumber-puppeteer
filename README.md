@@ -9,6 +9,12 @@ A Node.js template for end-to-end testing your app with Cucumber.js and Puppetee
 ## Start
 
 ```
+npm start
+```
+
+## Test
+
+```
 npm test
 ```
 
