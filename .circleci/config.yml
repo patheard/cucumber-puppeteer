@@ -1,19 +1,37 @@
 version: 2
+
+# Reusable blocks for our Docker image and workspace config
+references:
+  container_config: &container_config
+    docker:
+      - image: patheard/node-puppeteer:latest # Node with headless Chrome dependencies
+    working_directory: /tmp/workspace
+  steps:
+    - &persist_to_workspace
+      persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - . # Save the entire working directory
+    - &attach_workspace
+      attach_workspace:
+        at: /tmp/workspace    
+
 jobs:
 
   # In stall project dependencies and cache
   build:
-    docker:
-      - image: patheard/node-puppeteer:latest
+    <<: *container_config
     steps:
       - checkout
       - run: npm install
+      - *persist_to_workspace
+
 
   # Behaviour tests against locally running service using JEST
   behaviour_test:
-    docker:
-      - image: patheard/node-puppeteer:latest
+    <<: *container_config
     steps:
+      - *attach_workspace
       - run:
           command: |
             npm run test-server &
@@ -22,16 +40,16 @@ jobs:
 
   # Security audits with npm audit
   security_test:
-    docker:
-      - image: patheard/node-puppeteer:latest
+    <<: *container_config
     steps:
+      - *attach_workspace
       - run: npm audit  
 
   # Unit tests using JEST
   unit_test:
-    docker:
-      - image: patheard/node-puppeteer:latest
+    <<: *container_config
     steps:
+      - *attach_workspace 
       - run:
           command: |
             npm run test-server &
