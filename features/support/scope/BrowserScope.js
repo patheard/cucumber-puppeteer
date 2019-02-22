@@ -25,6 +25,9 @@ class BrowserScope {
 
         if(this.browser)
             await this.browser.close();
+        
+        this.page = null;
+        this.browser = null;
     }
 }
 
