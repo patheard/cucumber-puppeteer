@@ -6,9 +6,9 @@ jobs:
     docker:
       - image: patheard/node-puppeteer:latest
     steps:
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}  
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
