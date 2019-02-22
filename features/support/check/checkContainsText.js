@@ -15,7 +15,5 @@ module.exports = async function (selector, not, expectedText) {
         assert(!containsText, `Expected "${selector}" to not contain "${expectedText}"`);  
     } else {
         assert(containsText, `Expected "${selector}" to contain "${expectedText}"`);
-    }   
-
-
+    }
 }

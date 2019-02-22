@@ -55,6 +55,7 @@ jobs:
             npm run test-server &
             wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null # Wait until the website is up before continuing
             npm test
+            npm run test-coverage
 
 # Define job flow, dependencies and filters (when the job should run)
 workflows:
