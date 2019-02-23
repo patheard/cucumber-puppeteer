@@ -16,6 +16,12 @@ class FeatureScope {
 
     async init(currentFeature){
         this.feature = currentFeature;
+        
+        if(this.browserScope){
+            await this.browserScope.close();
+            this.browserScope = null;
+        }
+        
         this.browserScope = new BrowserScope();
         await this.browserScope.init();
     }

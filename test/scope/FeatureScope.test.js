@@ -24,6 +24,12 @@ describe('FeatureScope', () => {
     expect(featureScope.browserScope).not.toBe(null);
   }, testTimeout);
   
+  it('can close an existing browser scope object', async () => {
+    await featureScope.init('mmmuffins');
+    expect(featureScope.feature).toBe('mmmuffins');
+    expect(featureScope.browserScope).not.toBe(null);
+  }, testTimeout);
+
   it('can identify new features', async () => {    
     expect(featureScope.isNewFeature('mmmuffins')).toBe(false);
     expect(featureScope.isNewFeature('pants')).toBe(true);
