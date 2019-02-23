@@ -22,4 +22,6 @@ npm test
 
 ### License and Credits
 
-This code is licensed under the MIT license.
+This code is licensed under the MIT license.  Project ideas from:
+* [anephenix/cucumber-and-puppeteer](https://github.com/anephenix/cucumber-and-puppeteer) 
+* [webdriverio/cucumber-boilerplate](https://github.com/webdriverio/cucumber-boilerplate)
