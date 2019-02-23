@@ -8,11 +8,9 @@ Feature: Cucumber Steps
     Then  I expect that the title is "isVisible - Test"
     And   I expect the element ".visible" is visible
 
-  Scenario: Check for a hidden element
+  Scenario: Check for a hidden elements
     Then  I expect the element ".hidden" is not visible
-
-  Scenario: Check for non-existent alement
-    Then  I expect the element ".bueller" is not visible 
+    And   I expect the element ".bueller" is not visible 
 
   Scenario: Check element contains text
     When  I open the url "http://localhost:8080/checkContainsText.html"
@@ -21,3 +19,8 @@ Feature: Cucumber Steps
     And   I expect the element ".plumbus" contains text "Everyone has a Plumbus in their home. First they take the dinglebop, and they smooth it out, with a bunch of Schleem."       
     And   I expect the element ".wizard" does not contain text "foobar"
   
+  Scenario: Check URL matching
+    Given the page url is "http://localhost:8080/checkContainsText.html"
+    When  I open the url "http://localhost:8080/checkTitle.html"
+    Then  I expect the page url is "http://localhost:8080/checkTitle.html"    
+    And   I expect the page url is not "http://localhost:8080/checkContainsText.html"  
