@@ -1,10 +1,17 @@
 const { Given } = require('cucumber');
+const checkUrl = require('../support/check/checkUrl');
 const isVisible = require('../support/check/isVisible');
 
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
     isVisible
 );
+
+Given(
+    /^the page url is( not)? "([^"]*)?"$/,
+    checkUrl
+);
+
 /*
 Given(
     /^the element "([^"]*)?" is( not)* enabled$/,
@@ -56,10 +63,7 @@ Given(
     checkIsEmpty
 );
 
-Given(
-    /^the page url is( not)* "([^"]*)?"$/,
-    checkUrl
-);
+
 
 Given(
     /^the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
