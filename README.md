@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/patheard/cucumber-and-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-and-puppeteer)
+[![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-puppeteer)
 
 # Cucumber and Puppeteer
 
