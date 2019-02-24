@@ -2,6 +2,7 @@ const { Then } = require('cucumber');
 const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
 const checkElementExists = require('../support/check/checkElementExists');
+const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
 const checkElementVisible = require('../support/check/checkElementVisible');
@@ -34,4 +35,9 @@ Then(
 Then(
     /^I expect the element "([^"]*)?" is( not)* on the page$/,
     checkElementExists
+);
+
+Then(
+    /^I expect the element "([^"]*)?" is( not)* empty$/,
+    checkIsEmpty
 );

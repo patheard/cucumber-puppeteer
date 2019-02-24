@@ -2,6 +2,7 @@ const { Given } = require('cucumber');
 const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
 const checkElementExists = require('../support/check/checkElementExists');
+const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkUrl = require('../support/check/checkUrl');
 const checkElementVisible = require('../support/check/checkElementVisible');
 
@@ -28,6 +29,11 @@ Given(
 Given(
     /^element "([^"]*)?" is( not)* on the page$/,
     checkElementExists
+);
+
+Given(
+    /^the element "([^"]*)?" is( not)* empty$/,
+    checkIsEmpty
 );
 
 /*
