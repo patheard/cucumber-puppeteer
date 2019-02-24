@@ -1,6 +1,6 @@
-[![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)]
-[![deps](https://img.shields.io/david/patheard/cucumber-puppeteer.svg)]
-[![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)]
+![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)
+![deps](https://img.shields.io/david/patheard/cucumber-puppeteer.svg)
+![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)
 
 # Cucumber and Puppeteer
 
