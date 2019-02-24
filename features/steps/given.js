@@ -1,5 +1,7 @@
 const { Given } = require('cucumber');
 const checkAttribute = require('../support/check/checkAttribute');
+const checkContainsText = require('../support/check/checkContainsText');
+const checkElementExists = require('../support/check/checkElementExists');
 const checkUrl = require('../support/check/checkUrl');
 const isVisible = require('../support/check/isVisible');
 
@@ -16,6 +18,16 @@ Given(
 Given(
     /^the attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
     checkAttribute
+);
+
+Given(
+    /^the element "([^"]*)"( does not)? contains? text "([^"]*)"$/, 
+    checkContainsText
+);
+
+Given(
+    /^element "([^"]*)?" is( not)* on the page$/,
+    checkElementExists
 );
 
 /*

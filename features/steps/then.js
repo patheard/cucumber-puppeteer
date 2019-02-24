@@ -1,6 +1,7 @@
 const { Then } = require('cucumber');
-const checkContainsText = require('../support/check/checkContainsText');
 const checkAttribute = require('../support/check/checkAttribute');
+const checkContainsText = require('../support/check/checkContainsText');
+const checkElementExists = require('../support/check/checkElementExists');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
 const isVisible = require('../support/check/isVisible');
@@ -28,4 +29,9 @@ Then(
 Then(
     /^I expect the attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
     checkAttribute
+);
+
+Then(
+    /^I expect the element "([^"]*)?" is( not)* on the page$/,
+    checkElementExists
 );
