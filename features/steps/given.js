@@ -3,11 +3,11 @@ const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
 const checkElementExists = require('../support/check/checkElementExists');
 const checkUrl = require('../support/check/checkUrl');
-const isVisible = require('../support/check/isVisible');
+const checkElementVisible = require('../support/check/checkElementVisible');
 
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
-    isVisible
+    checkElementVisible
 );
 
 Given(
