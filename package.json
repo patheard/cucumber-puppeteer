@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
   "dependencies": {
-    "chai": "^4.2.0",
     "cucumber": "^5.1.0",
     "puppeteer": "^1.12.2"
   },
