@@ -4,7 +4,7 @@ const checkContainsText = require('../support/check/checkContainsText');
 const checkElementExists = require('../support/check/checkElementExists');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
-const isVisible = require('../support/check/isVisible');
+const checkElementVisible = require('../support/check/checkElementVisible');
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -13,7 +13,7 @@ Then(
 
 Then(
     /^I expect the element "([^"]*)" is( not)? visible$/, 
-    isVisible
+    checkElementVisible
 );
 
 Then(
