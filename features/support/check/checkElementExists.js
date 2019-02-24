@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert').strict;
 
 /**
  * Checks if an element does, or does not, exist on the page.
@@ -7,10 +7,7 @@ const { assert } = require('chai');
  */
 module.exports = async function(selector, not) {
   const elem = await this.page.$(selector);
+  const shouldElementExist = not ? false : true;
 
-  if(not){
-    assert(elem === null,  `Expected "${selector}" to not exist`);
-  } else {
-    assert(elem !== null,  `Expected "${selector}" to exist`);
-  }
+  assert.strictEqual(elem !== null, shouldElementExist, `Expected "${selector}" to ${shouldElementExist ? 'exist' : 'not exist'}`);
 }

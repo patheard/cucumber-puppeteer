@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert').strict;
 
 /**
  * Checks if a page's URL matches the expected value
@@ -7,11 +7,8 @@ const { assert } = require('chai');
  */
 module.exports = async function(not, expectedUrl) {
   const url = await this.page.url();
-  assert(url !== null, 'Page URL cannot be null');
+  const shouldUrlEqual = not ? false : true;
 
-  if(not){
-    assert(url !== expectedUrl, `Expected "${expectedUrl}" to not equal "${url}"`);
-  } else {
-    assert(url === expectedUrl, `Expected "${expectedUrl}" to equal "${url}"`);
-  }
+  assert(url !== null, 'Page URL cannot be null');
+  assert.strictEqual(url === expectedUrl, shouldUrlEqual, `Expected "${expectedUrl}" to ${shouldUrlEqual ? 'equal' : 'not equal'} "${url}"`);
 }

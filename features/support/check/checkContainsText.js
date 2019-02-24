@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert').strict;
 
 /**
  * Checks if an element contains the given text.
@@ -8,12 +8,9 @@ const { assert } = require('chai');
  */
 module.exports = async function (selector, not, expectedText) {
     /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
-    const elementText = await this.page.$eval(selector, el => el ? el.textContent : null);
+    const elementText = await this.page.$eval(selector, el => el.textContent);
     const containsText = elementText && elementText.includes(expectedText);
+    const shouldContainText = not ? false : true;
 
-    if(not){
-        assert(!containsText, `Expected "${selector}" to not contain "${expectedText}"`);  
-    } else {
-        assert(containsText, `Expected "${selector}" to contain "${expectedText}"`);
-    }
+    assert.strictEqual(containsText, shouldContainText, `Expected "${selector}" to ${shouldContainText ? 'contain' : 'not contain'} "${expectedText}"`);
 }
