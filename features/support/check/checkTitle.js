@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert');
 
 /**
  * Checks if the web page `<title>` matches the given string.

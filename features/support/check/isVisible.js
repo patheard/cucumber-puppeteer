@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert');
 
 /**
  * Determine if an element is visible.

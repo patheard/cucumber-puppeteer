@@ -1,4 +1,4 @@
-const { assert } = require('chai');
+const assert = require('assert').strict;
 
 /**
  * Checks the value of an element's attribute.  Fails if the element or attribute does not exist.
@@ -9,8 +9,10 @@ const { assert } = require('chai');
  */
 module.exports = async function(attribute, selector, not, expectedValue) {
   /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
-  const attributeValue = await this.page.$eval(selector, (el, attribute) => { return el ? el.getAttribute(attribute) : null }, attribute);
-  
+  const attributeValue = await this.page.$eval(selector, (el, attribute) => { return el.getAttribute(attribute) }, attribute);
+  const shouldValuesBeEqual = not ? false : true;
+  const shouldEqual = shouldValuesBeEqual ? 'equal' : 'not equal'
+
   assert(attributeValue !== null, `Expected "${attribute}" to exist`);
-  assert.equal(attributeValue === expectedValue, not ? false : true, `Expected "${attributeValue}" to${not ? 'not' : ''} equal "${expectedValue}" of element "${selector}" attribute "${attribute}"`);
+  assert.strictEqual(attributeValue === expectedValue, shouldValuesBeEqual, `Expected "${attributeValue}" to ${shouldValuesBeEqual ? 'equal' : 'not equal'} "${expectedValue}" of element "${selector}" attribute "${attribute}"`);
 }
