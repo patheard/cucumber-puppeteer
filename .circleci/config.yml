@@ -1,4 +1,9 @@
 version: 2
+general:
+  branches:
+    only:
+      - checkHasFocus
+      - checkHasFocus_squashedcommit
 
 # Reusable blocks for our Docker image and workspace config
 references:
@@ -72,3 +77,4 @@ workflows:
       - security_test:
           requires:
             - build
+
