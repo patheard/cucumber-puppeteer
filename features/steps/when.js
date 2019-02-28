@@ -1,4 +1,5 @@
 const { When } = require('cucumber');
+const clickElement = require('../support/action/clickElement');
 const openUrl = require('../support/action/openUrl');
 
 When(
@@ -6,24 +7,7 @@ When(
     openUrl
 );
 
-/*
-Given(
-    /^the element "([^"]*)?" is( not)* enabled$/,
-    isEnabled
+When(
+    /^I click the (?:element|button|link) "([^"]*)?"$/, 
+    clickElement
 );
-
-Given(
-    /^the element "([^"]*)?" is( not)* selected$/,
-    checkSelected
-);
-
-
-Given(
-    /^the (button|element) "([^"]*)?" is( not)* empty$/,
-    checkIsEmpty
-);
-
-*/
-
-
-

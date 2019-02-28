@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>clickElement - Test</title>
+</head>
+<body>
+    <h1>clickElement</h1>
+
+    <a href="/checkAttribute.html" class="nav">navigate to another page</a>
+    <a href="#somehash" class="hash">update page hash</a>
+
+    <form action="/checkContainsText.html" method="get">
+        <input type="hidden" name="listenhere" value="meow">
+        <input type="submit" value="Submit">
+    </form>
+
+    <button type="button" class="javascript">Increment</button>
+    <div class="inc"></div>
+
+    <script>
+        let count = 0;
+        document.querySelector('button').addEventListener('click', function(){
+            document.querySelector('.inc').textContent = ++count;
+        });
+    </script>
+
+</body>
+</html>

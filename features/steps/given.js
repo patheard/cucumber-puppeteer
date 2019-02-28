@@ -42,13 +42,3 @@ Given(
     /^the element "([^"]*)?" is( not)* enabled$/,
     checkElementEnabled
 );
-
-/*
-Given(
-    /^the element "([^"]*)?" is( not)* selected$/,
-    checkSelected
-);
-*/
-
-
-
