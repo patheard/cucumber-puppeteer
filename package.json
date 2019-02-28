@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
-    "test": "jest --verbose",
+    "test": "jest --verbose --runInBand",
     "test-server": "http-server -p 8080 ./test/html",
     "test-coverage": "codecov"
   },
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
   "dependencies": {
     "cucumber": "^5.1.0",
-    "puppeteer": "^1.12.2"
+    "puppeteer": "1.11.0"
   },
   "devDependencies": {
     "codecov": "^3.2.0",
