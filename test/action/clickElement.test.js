@@ -3,7 +3,6 @@ const checkUrl = require('../../features/support/check/checkUrl');
 const clickElement = require('../../features/support/action/clickElement');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
-const puppeteer = require('puppeteer');
 
 const testTimeout = 10000;
 const testUrl = 'http://localhost:8080/clickElement.html';
