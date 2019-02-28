@@ -1,11 +1,12 @@
 const { Then } = require('cucumber');
 const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
+const checkElementEnabled = require('../support/check/checkElementEnabled');
 const checkElementExists = require('../support/check/checkElementExists');
+const checkElementVisible = require('../support/check/checkElementVisible');
 const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
-const checkElementVisible = require('../support/check/checkElementVisible');
 const checkHasFocus = require("../support/check/checkHasFocus");
 
 Then(
@@ -41,6 +42,11 @@ Then(
 Then(
     /^I expect the element "([^"]*)?" is( not)* empty$/,
     checkIsEmpty
+);
+
+Then(
+    /^I expect the element "([^"]*)?" is( not)* enabled$/,
+    checkElementEnabled
 );
 
 Then(
