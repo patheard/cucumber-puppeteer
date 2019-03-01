@@ -72,3 +72,4 @@ workflows:
       - security_test:
           requires:
             - build
+

@@ -7,6 +7,7 @@ const checkElementVisible = require('../support/check/checkElementVisible');
 const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
+const checkHasFocus = require("../support/check/checkHasFocus");
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -46,4 +47,9 @@ Then(
 Then(
     /^I expect the element "([^"]*)?" is( not)* enabled$/,
     checkElementEnabled
+);
+
+Then(
+    /^I expect the element "([^"]*)?" has( no)* focus$/,
+    checkHasFocus
 );
