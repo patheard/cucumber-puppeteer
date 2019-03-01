@@ -1,5 +1,4 @@
 version: 2
-general:
   branches:
     only:
       - checkHasFocus
