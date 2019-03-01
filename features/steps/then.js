@@ -10,6 +10,8 @@ const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
 const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
+const checkCookieExists = require("../support/check/checkCookieExists");
+const checkCookieContents = require("../support/check/checkCookieContents");
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -64,4 +66,14 @@ Then(
 Then(
     /^I expect the element "([^"]*)?" is( not)* checked$/,
     checkIsChecked
+);
+
+Then(
+    /^I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"$/,
+    checkCookieContents
+);
+
+Then(
+    /^I expect that cookie "([^"]*)?"( not)* exists$/,
+    checkCookieExists
 );

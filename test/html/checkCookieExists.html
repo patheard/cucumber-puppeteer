@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>checkCookieExist- Test</title>
+</head>
+
+<body>
+    <h1>checkCookieExist</h1>
+
+    <p id='existing-cookie'></p>
+
+    <p id='holding-no-cookies'></p>
+    
+    <script>
+
+        //set a cookie with a value
+        setCookie("existing-cookie", "Cookie with a value");
+        //set a second cookie with the same value
+        setCookie("second-existing-cookie", "Cookie with a value");
+        //modifies existing cookie value
+        setCookie("second-existing-cookie", "Cookie with a new value");
+        //set a cookie with no value
+        setCookie("undifined-value-cookie", );
+        
+        displayCookie("not-existing-cookie");
+
+        function setCookie(name, value) {
+            document.cookie = name + "=" + value;
+            var x = document.cookie
+            document.getElementById("existing-cookie").innerHTML = "Cookies associated with this document: " + x;
+        }
+
+        function displayCookie(name) {
+            var y = getCookie(name);
+            return document.getElementById("holding-no-cookies").innerHTML = "Value associated with cookie : " + name + " is : " + y;
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return null;
+        }
+
+    </script>
+
+</body>
+
+</html>

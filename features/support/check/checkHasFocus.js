@@ -3,7 +3,7 @@ const assert = require('assert').strict;
 /**
  * Checks if a given element is an active element in the DOM.  Fails if the element does not exist.
  * @param {String} selector CSS selector of the element to check for child elements.
- * @param {String} not The string "not" to negate the check (the element should not have child elements).
+ * @param {String} not The string "not" to negate the check (the element should not have focus).
  */
 module.exports = async function(selector, not) {
 
