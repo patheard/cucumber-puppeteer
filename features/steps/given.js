@@ -7,6 +7,7 @@ const checkElementVisible = require('../support/check/checkElementVisible');
 const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkUrl = require('../support/check/checkUrl');
 const checkHasFocus = require("../support/check/checkHasFocus");
+const checkIsChecked = require('../support/check/checkIsChecked');
 
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
@@ -36,6 +37,11 @@ Given(
 Given(
     /^the element "([^"]*)?" is( not)* empty$/,
     checkIsEmpty
+);
+
+Given(
+    /^the element "([^"]*)?" is( not)* checked$/,
+    checkIsChecked
 );
 
 Given(

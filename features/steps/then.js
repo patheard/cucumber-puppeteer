@@ -8,6 +8,7 @@ const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
 const checkHasFocus = require("../support/check/checkHasFocus");
+const checkIsChecked = require('../support/check/checkIsChecked');
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -52,4 +53,9 @@ Then(
 Then(
     /^I expect the element "([^"]*)?" has( no)* focus$/,
     checkHasFocus
+);
+
+Then(
+    /^I expect the element "([^"]*)?" is( not)* checked$/,
+    checkIsChecked
 );
