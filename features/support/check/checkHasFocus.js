@@ -6,14 +6,10 @@ const assert = require('assert').strict;
  * @param {String} not The string "not" to negate the check (the element should not have child elements).
  */
 module.exports = async function(selector, not) {
-  const childFocus = await this.page.$(selector);
+
+  /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
+  const hasFocus = await this.page.$eval(selector, el => el === document.activeElement);
   const shouldBeFocus = not ? false : true;
-  if(childFocus !== null){
-    /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
-    const result = await this.page.evaluate(childFocus => childFocus === document.activeElement, childFocus);
-    assert.strictEqual(result, shouldBeFocus, `Expected "${selector}" to ${shouldBeFocus ? 'have focus' : 'have no focus'}`);
-  }else {
-    assert(undefined, `Error: failed to find element matching selector "${selector}"`);
-  }
-  
+    
+  assert.strictEqual(hasFocus, shouldBeFocus, `Expected "${selector}" to ${shouldBeFocus ? 'have focus' : 'have no focus'}`);
 }

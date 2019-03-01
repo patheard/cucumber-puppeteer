@@ -1,8 +1,4 @@
 version: 2
-  branches:
-    only:
-      - checkHasFocus
-      - checkHasFocus_squashedcommit
 
 # Reusable blocks for our Docker image and workspace config
 references:
