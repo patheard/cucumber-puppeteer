@@ -8,7 +8,7 @@ Feature: checkIsChecked
     Then  I expect the element "#checked" is checked
     And   I expect the element "#not-checked" is not checked
 
-  Scenario: Check element exists given
+  Scenario: Check element is checked given
     Given the element "#checked" is checked
     Then  the element "#not-checked" is not checked
 
