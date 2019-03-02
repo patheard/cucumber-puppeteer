@@ -10,7 +10,7 @@ Feature: checkIsChecked
 
   Scenario: Check element is checked given
     Given the element "#checked" is checked
-    And   the element "#checked" is checked
+    And   the element "#tobe-checked" is not checked
     When  I click the element "#tobe-checked"
     Then  the element "#tobe-checked" is checked
     And   the element "#checked" is checked
