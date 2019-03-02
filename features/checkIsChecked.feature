@@ -10,5 +10,8 @@ Feature: checkIsChecked
 
   Scenario: Check element is checked given
     Given the element "#checked" is checked
-    Then  the element "#not-checked" is not checked
+    And   the element "#checked" is checked
+    When  I click the element "#tobe-checked"
+    Then  the element "#tobe-checked" is checked
+    And   the element "#checked" is checked
 
