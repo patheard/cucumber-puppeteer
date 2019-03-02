@@ -11,6 +11,9 @@ Feature: checkElementHasFocus
 
   Scenario: Check element has focus given
     Given the element "#focus" has focus
-    Then  I expect the element "#no-focus" has no focus
+    And   the element "#tobe-focused" has no focus
+    When  I click the element "#tobe-focused"
+    Then  I expect the element "#tobe-focused" has focus
+    And   I expect the element "#no-focus" has no focus
 
 

@@ -3,26 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <style>
-            a:focus, a:active {
-              color: green;
-            }
+      a:focus, a:active {
+        color: green;
+      }
     </style>
     <title>checkHasFocus - Test</title>
 </head>
 <body>
     <h1>checkHasFocus</h1>
-
-    <a id="focus" href="#">HasFocus</a>
-
-    <a id="no-focus" href="#">HasNoFocus</a>
-
+    <a id="focus" href="#focus">HasFocus</a>
+    <a id="no-focus" href="#no-focus">HasNoFocus</a>
+    <a id="tobe-focused" href="#tobe-focused">ToBeFocused</a>
 
     <script>
-
-          document.getElementById("focus").focus();
-        
+          document.getElementById("focus").focus();        
           document.getElementById("no-focus").blur();
-
     </script>
 </body>
 </html>

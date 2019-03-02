@@ -1,3 +1,4 @@
+const clickElement = require('../../features/support/action/clickElement');
 const checkHasFocus = require('../../features/support/check/checkHasFocus');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
@@ -31,6 +32,13 @@ describe('checkHasFocus', () => {
   it('throws an error if the element has no focus, but should have', async() => {
     await expect(checkHasFocus.call(browserScope, '#no-focus')).rejects.toThrow('Expected "#no-focus" to have focus');
   }, testTimeout);
+
+  it("finds newly focused elements", async () =>{
+    await clickElement.call(browserScope, '#tobe-focused');
+    await checkHasFocus.call(browserScope, '#tobe-focused');
+    await checkHasFocus.call(browserScope, '#focus', 'not');
+    await checkHasFocus.call(browserScope, '#no-focus', 'not');
+}, testTimeout);   
 
   it('throws an error when the element doest exist', async() => {
     await expect(checkHasFocus.call(browserScope, '.foobar')).rejects.toThrow(`Error: failed to find element matching selector ".foobar`);
