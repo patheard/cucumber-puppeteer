@@ -11,5 +11,6 @@ module.exports = async function(selector, not) {
     const isChecked = await this.page.$eval(selector, el => el.checked);
     const shouldBeChecked = not ? false : true;
 
-    assert.strictEqual(isChecked, shouldBeChecked, `Expected "${selector}" to ${shouldBeChecked ? 'be checked' : 'be unchecked'} `);
+    assert.strictEqual(isChecked !== undefined, true, `Error: "${selector}" is not a checkbox element`);
+    assert.strictEqual(isChecked, shouldBeChecked, `Expected "${selector}" to ${shouldBeChecked ? 'be checked' : 'be unchecked'}`);
 };

@@ -32,6 +32,10 @@ describe('checkIsChecked', () => {
         await expect(checkIsChecked.call(browserScope, '#checked', 'not')).rejects.toThrow('Expected "#checked" to be unchecked'); 
     }, testTimeout);
 
+    it('throws an error when an element cannot be checked', async () => {
+        await expect(checkIsChecked.call(browserScope, 'h1')).rejects.toThrow('Error: "h1" is not a checkbox element');
+    }, testTimeout); 
+
     it('throws an error when the element does not exist', async () => {
         await expect(checkIsChecked.call(browserScope, '.foobar')).rejects.toThrow('Error: failed to find element matching selector ".foobar"');
     }, testTimeout); 
