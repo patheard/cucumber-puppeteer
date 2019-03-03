@@ -4,6 +4,7 @@ const checkContainsText = require('../support/check/checkContainsText');
 const checkElementEnabled = require('../support/check/checkElementEnabled');
 const checkElementExists = require('../support/check/checkElementExists');
 const checkElementVisible = require('../support/check/checkElementVisible');
+const checkElementValue = require('../support/check/checkElementValue');
 const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkTitle = require('../support/check/checkTitle');
 const checkUrl = require('../support/check/checkUrl');
@@ -18,6 +19,11 @@ Then(
 Then(
     /^I expect the element "([^"]*)" is( not)? visible$/, 
     checkElementVisible
+);
+
+Then(
+    /^I expect the element "([^"]*)?" value is( not)? "([^"]*)?"$/,
+    checkElementValue
 );
 
 Then(

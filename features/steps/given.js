@@ -3,6 +3,7 @@ const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
 const checkElementEnabled = require('../support/check/checkElementEnabled');
 const checkElementExists = require('../support/check/checkElementExists');
+const checkElementValue = require('../support/check/checkElementValue');
 const checkElementVisible = require('../support/check/checkElementVisible');
 const checkIsEmpty = require('../support/check/checkIsEmpty');
 const checkUrl = require('../support/check/checkUrl');
@@ -12,6 +13,11 @@ const checkIsChecked = require('../support/check/checkIsChecked');
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
     checkElementVisible
+);
+
+Given(
+    /^the element "([^"]*)?" value is( not)? "([^"]*)?"$/,
+    checkElementValue
 );
 
 Given(
