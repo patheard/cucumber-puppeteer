@@ -3,6 +3,8 @@
 
 # Cucumber and Puppeteer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/patheard/cucumber-puppeteer.svg)](https://greenkeeper.io/)
+
 A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer.  Look at the `*.feature` files to see the different tests available.
 
 ## Dependencies
