@@ -25,7 +25,7 @@
   "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
   "dependencies": {
     "cucumber": "^5.1.0",
-    "puppeteer": "1.11.0"
+    "puppeteer": "^1.13.0"
   },
   "devDependencies": {
     "codecov": "^3.2.0",
