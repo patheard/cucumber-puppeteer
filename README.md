@@ -1,9 +1,8 @@
-![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)
-![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)
+[![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)](https://circleci.com/gh/patheard/cucumber-puppeteer)
+[![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-puppeteer)
+[![Greenkeeper badge](https://badges.greenkeeper.io/patheard/cucumber-puppeteer.svg)](https://greenkeeper.io/)
 
 # Cucumber and Puppeteer
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/patheard/cucumber-puppeteer.svg)](https://greenkeeper.io/)
 
 A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer.  Look at the `*.feature` files to see the different tests available.
 
