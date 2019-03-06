@@ -1,6 +1,5 @@
 [![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)](https://circleci.com/gh/patheard/cucumber-puppeteer)
 [![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-puppeteer)
-[![Greenkeeper badge](https://badges.greenkeeper.io/patheard/cucumber-puppeteer.svg)](https://greenkeeper.io/)
 
 # Cucumber and Puppeteer
 
