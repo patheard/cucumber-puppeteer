@@ -8,7 +8,7 @@ const assert = require('assert').strict;
  */
 module.exports = async function(cname, not) {
  
-  var cookieNameFound;
+  let cookieNameFound;
   const pageCookies = await this.page.cookies();
   const shouldCookieExist = not ? false : true;
   
