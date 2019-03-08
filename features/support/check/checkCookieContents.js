@@ -10,7 +10,7 @@ const assert = require('assert').strict;
 module.exports = async function(cname, cvalue, not) {
 
   let cookieValue; 
-  var cookieNameFound;
+  let cookieNameFound;
   const pageCookies = await this.page.cookies();
   const expectedValue = cvalue === undefined ? '' : cvalue;
   const shouldValueBeEqual = not ? false : true;
