@@ -1,7 +1,7 @@
 const assert = require('assert').strict;
 
 /**
- * Checks if an cookie does, or does not, exist on the page. 
+ * Checks if a given cookie does match, or does not match, with its expected value. 
  * Throws an error if the cookie name is not defined in the document.
  * @param {String} cname Cookie name to check for.
  * @param {String} cvalue Cookie value to check for.
@@ -15,7 +15,7 @@ module.exports = async function(cname, cvalue, not) {
   const expectedValue = cvalue === undefined ? '' : cvalue;
   const shouldValueBeEqual = not ? false : true;
   
-  for (let index = 0; index < pageCookies.length; index++) {
+  for (let index = 0, length = pageCookies.length; index < length; index++) {
     const element = pageCookies[index];
     cookieNameFound = element.name === cname;
     if(cookieNameFound){

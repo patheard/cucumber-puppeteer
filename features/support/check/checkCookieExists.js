@@ -2,9 +2,8 @@ const assert = require('assert').strict;
 
 /**
  * Checks if an cookie does, or does not, exist on the page. 
- * Throws an error if the cookie name is not defined in the document.
  * @param {String} cname Cookie name to check for.
- * @param {String} not The string "not" to negate the check (cookie value should not match).
+ * @param {String} not The string "not" to negate the check (cookie value should not exist).
  */
 module.exports = async function(cname, not) {
  
@@ -12,11 +11,10 @@ module.exports = async function(cname, not) {
   const pageCookies = await this.page.cookies();
   const shouldCookieExist = not ? false : true;
   
-  for (let index = 0; index < pageCookies.length; index++) {
+  for (let index = 0, length = pageCookies.length; index < length; index++) {
     const element = pageCookies[index];
     cookieNameFound = element.name === cname;
     if(cookieNameFound){
-      cookieValue = element.value ;
       break;
     } 
   }
