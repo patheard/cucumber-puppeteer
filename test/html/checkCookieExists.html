@@ -16,20 +16,26 @@
     <script>
 
         //set a cookie with a value
-        setCookie("existing-cookie", "Cookie with a value");
+        setCookie("existing-cookie", "Cookie with a value", 10);
         //set a second cookie with the same value
-        setCookie("second-existing-cookie", "Cookie with a value");
+        setCookie("second-existing-cookie", "Cookie with a value", 10);
         //modifies existing cookie value
-        setCookie("second-existing-cookie", "Cookie with a new value");
+        setCookie("second-existing-cookie", "Cookie with a new value", 10);
         //set a cookie with no value
-        setCookie("undefined-value-cookie");
-        
-        displayCookie("not-existing-cookie");
+        setCookie("undefined-value-cookie", );
+        //set a cookie that is going to be deleted
+        setCookie("tobe-deleted-cookie", "some value to delete", 10);
+        //delete the cookie that as been set up for deletion
+        setCookie("tobe-deleted-cookie", "some value to delete", 0);
 
-        function setCookie(name, value) {
-            document.cookie = name + "=" + value;
-            const x = document.cookie
-            document.getElementById("existing-cookie").innerHTML = "Cookies associated with this document: " + x;
+        displayCookie("tobe-deleted-cookie");
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            const expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            document.getElementById("existing-cookie").innerHTML = "Cookies associated with this document: " + document.cookie;
         }
 
         function displayCookie(name) {
