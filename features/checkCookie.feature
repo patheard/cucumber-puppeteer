@@ -5,29 +5,29 @@ Feature: checkCookie
 
   Scenario: Check for existing cookies
     When  I open the url "http://localhost:8080/checkCookieExists.html"
-    Then  I expect that cookie "existing-cookie" exists
-    And   I expect that cookie "existing-cookie" contains "Cookie with a value"
-    And   I expect that cookie "undifined-value-cookie" exists
-    And   I expect that cookie "undifined-value-cookie" contains "undifined"
-    And   I expect that cookie "second-existing-cookie" exists
-    And   I expect that cookie "second-existing-cookie" contains "Cookie with a new value"
-    And   I expect that cookie "not-existing-cookie" not exists
+    Then  I expect the cookie "existing-cookie" exist
+    And   I expect the cookie "existing-cookie" value is "Cookie with a value"
+    And   I expect the cookie "undefined-value-cookie" exist
+    And   I expect the cookie "undefined-value-cookie" value is "undefined"
+    And   I expect the cookie "second-existing-cookie" exist
+    And   I expect the cookie "second-existing-cookie" value is "Cookie with a new value"
+    And   I expect the cookie "not-existing-cookie" not exist
 
   Scenario: Check for existing cookie given along with a value
-    Given the cookie "existing-cookie" contains the value "Cookie with a value"
-    And   I expect that cookie "existing-cookie" exists
-    Then  I expect that cookie "undifined-value-cookie" contains "undifined"
-    And   I expect that cookie "undifined-value-cookie" exists
-    And   I expect that cookie "second-existing-cookie" contains "Cookie with a new value"
-    And   I expect that cookie "second-existing-cookie" exists
-    And   I expect that cookie "not-existing-cookie" not exists
+    Given the cookie "existing-cookie" value is "Cookie with a value"
+    And   I expect the cookie "existing-cookie" exist
+    Then  I expect the cookie "undefined-value-cookie" value is "undefined"
+    And   I expect the cookie "undefined-value-cookie" exist
+    And   I expect the cookie "second-existing-cookie" value is "Cookie with a new value"
+    And   I expect the cookie "second-existing-cookie" exist
+    And   I expect the cookie "not-existing-cookie" not exist
 
   Scenario: Check for existing cookie given 
-    Given the cookie "existing-cookie" does exists
-    Then   I expect that cookie "existing-cookie" contains "Cookie with a value"
-    And   I expect that cookie "undifined-value-cookie" contains "undifined"
-    And   I expect that cookie "undifined-value-cookie" exists
-    And   I expect that cookie "second-existing-cookie" contains "Cookie with a new value"
-    And   I expect that cookie "second-existing-cookie" exists
-    And   I expect that cookie "not-existing-cookie" not exists
+    Given the cookie "existing-cookie" exist
+    Then  I expect the cookie "existing-cookie" value is "Cookie with a value"
+    And   I expect the cookie "undefined-value-cookie" value is "undefined"
+    And   I expect the cookie "undefined-value-cookie" exist
+    And   I expect the cookie "second-existing-cookie" value is "Cookie with a new value"
+    And   I expect the cookie "second-existing-cookie" exist
+    And   I expect the cookie "not-existing-cookie" not exist
 

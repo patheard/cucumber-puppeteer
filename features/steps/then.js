@@ -11,7 +11,7 @@ const checkUrl = require('../support/check/checkUrl');
 const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
-const checkCookieContents = require("../support/check/checkCookieContents");
+const checkCookieValue = require("../support/check/checkCookieValue");
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -69,11 +69,11 @@ Then(
 );
 
 Then(
-    /^I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"$/,
-    checkCookieContents
+    /^I expect the cookie "([^"]*)?" value is( not)* "([^"]*)?"$/,
+    checkCookieValue
 );
 
 Then(
-    /^I expect that cookie "([^"]*)?"( not)* exists$/,
+    /^I expect the cookie "([^"]*)?"( not)* exist?$/,
     checkCookieExists
 );

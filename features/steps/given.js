@@ -10,7 +10,7 @@ const checkUrl = require('../support/check/checkUrl');
 const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
-const checkCookieContents = require("../support/check/checkCookieContents");
+const checkCookieValue = require("../support/check/checkCookieValue");
 
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
@@ -63,11 +63,11 @@ Given(
 );
 
 Given(
-    /^the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"$/,
-    checkCookieContents
+    /^the cookie "([^"]*)?" value is( not)* "([^"]*)?"$/,
+    checkCookieValue
 );
 
 Given(
-    /^the cookie "([^"]*)?" does( not)* exists$/,
+    /^the cookie "([^"]*)?"( not)* exist?$/,
     checkCookieExists
 );
