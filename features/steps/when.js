@@ -2,6 +2,7 @@ const { When } = require('cucumber');
 const clickElement = require('../support/action/clickElement');
 const openUrl = require('../support/action/openUrl');
 const setElementValue = require('../support/action/setElementValue');
+const waitFor = require('../support/action/waitFor');
 
 When(
     /^I open the url "([^"]*)?"$/, 
@@ -16,4 +17,9 @@ When(
 When(
     /^I set the (?:element|input|select|textarea) "([^"]*)?" value to "([^"]*)?"$/, 
     setElementValue
+);
+
+When(
+    /^I wait for "([^"]*)?" seconds$/, 
+    waitFor
 );
