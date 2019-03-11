@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>deleteCookie - Test</title>
+</head>
+
+<body>
+    <h1>deleteCookie</h1>
+
+    <p id='existing-cookie'></p>
+
+    <p id='holding-no-cookies'></p>
+    
+    <script>
+
+        //set a cookie with a value
+        setCookie("existing-cookie", "Cookie with a value", 10);
+        //set a second cookie with the same value
+        setCookie("second-existing-cookie", "Cookie with a value", 10);
+        //modifies existing cookie value
+        setCookie("second-existing-cookie", "Cookie with a new value", 10);
+        //set a cookie with no value
+        setCookie("undefined-value-cookie", );
+        //set a cookie that is going to be deleted
+        setCookie("tobe-deleted-cookie", "some value to delete", 10);
+        //delete the cookie that as been set up for deletion
+        setCookie("tobe-deleted-cookie", "some value to delete", 0);
+
+        displayCookie("tobe-deleted-cookie");
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            const expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            document.getElementById("existing-cookie").innerHTML = "Cookies associated with this document: " + document.cookie;
+        }
+
+        function displayCookie(name) {
+            const y = getCookie(name);
+            return document.getElementById("holding-no-cookies").innerHTML = "Value associated with cookie : " + name + " is : " + y;
+        }
+
+        function getCookie(cname) {
+            const name = cname + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return null;
+        }
+
+    </script>
+
+</body>
+
+</html>

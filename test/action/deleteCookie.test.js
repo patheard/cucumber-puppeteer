@@ -4,7 +4,7 @@ const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
 
 const testTimeout = 10000;
-const testUrl = 'http://localhost:8080/checkCookieExists.html';
+const testUrl = 'http://localhost:8080/deleteCookie.html';
 const browserScope = new BrowserScope();
 
 beforeAll(async () => {
