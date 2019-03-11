@@ -3,6 +3,7 @@ const clickElement = require('../support/action/clickElement');
 const openUrl = require('../support/action/openUrl');
 const setElementValue = require('../support/action/setElementValue');
 const waitFor = require('../support/action/waitFor');
+const deleteCookie = require('../support/action/deleteCookie')
 
 When(
     /^I open the url "([^"]*)?"$/, 
@@ -22,4 +23,9 @@ When(
 When(
     /^I wait for "([^"]*)?" seconds$/, 
     waitFor
+);
+
+When(
+    /^I delete the cookie "([^"]*)?"$/, 
+    deleteCookie
 );
