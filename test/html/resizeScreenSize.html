@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>resizeScreenSize - Test</title>
+
+    <style>
+      #box {
+        width: 800px;
+        border: 25px solid green;
+        padding: 25px;
+        margin: 25px;
+        box-sizing: border-box
+      }
+
+      @media only screen and (max-width: 1000px) {
+        #box {
+          width: 600px;
+         
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        #box {
+          width: 400px;
+         
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        #box {
+          width: 200px;
+          
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>resizeScreenSize</h1>
+
+    <p id="width"></p>
+    <p id="height"></p>
+
+    <div id="box">
+      <p id="boxwidth"></p>
+    </div>
+
+    <script>
+
+    window.addEventListener("resize", resize);
+
+      function resize() {
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        const bw = document.getElementById("boxwidth").offsetWidth;
+        document.getElementById("width").innerText = "Browser width : " + w;
+        document.getElementById("height").innerText = "Browser height : " + h;
+        document.getElementById("boxwidth").innerText = "Box width : " + bw;
+
+      }
+
+      resize();
+      
+    </script>
+  </body>
+</html>

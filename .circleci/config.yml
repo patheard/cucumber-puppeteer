@@ -14,7 +14,7 @@ references:
           - . # Save the entire working directory
     - &attach_workspace
       attach_workspace:
-        at: /tmp/workspace    
+        at: /tmp/workspace
 
 jobs:
 
