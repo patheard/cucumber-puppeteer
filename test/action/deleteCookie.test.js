@@ -3,7 +3,6 @@ const deleteCookie = require('../../features/support/action/deleteCookie');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
 
-const testTimeout = 10000;
 const testUrl = 'http://localhost:8080/deleteCookie.html';
 const browserScope = new BrowserScope();
 
@@ -21,13 +20,13 @@ describe('deleteCookie', () => {
     await checkCookieExists.call(browserScope, 'existing-cookie');
     await deleteCookie.call(browserScope, 'existing-cookie');
     await checkCookieExists.call(browserScope, 'existing-cookie', 'not');
-  }, testTimeout);
+  });
 
 
   it('fails if the cookie does not exist', async () => {
     await checkCookieExists.call(browserScope, 'tobe-deleted-cookie', 'not');  
     await expect(deleteCookie.call(browserScope, 'tobe-deleted-cookie')).rejects.toThrow(`Error: unable to find 'tobe-deleted-cookie'.`);
     await expect(deleteCookie.call(browserScope)).rejects.toThrow(`Error: unable to find 'undefined'.`);
-  }, testTimeout);
+  });
 
 });
