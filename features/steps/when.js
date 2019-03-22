@@ -5,6 +5,7 @@ const setElementValue = require('../support/action/setElementValue');
 const waitFor = require('../support/action/waitFor');
 const deleteCookie = require('../support/action/deleteCookie');
 const resizeScreenSize = require('../support/action/resizeScreenSize')
+const scrollToElement = require('../support/action/scrollToElement');
 
 When(
     /^I open the url "([^"]*)?"$/, 
@@ -34,4 +35,9 @@ When(
 When(
     /^I set the browser size to (\d+) pixels width and (\d+) pixels height$/,
     resizeScreenSize
+);
+
+When(
+    /^I scroll to element "([^"]*)?"$/, 
+    scrollToElement
 );

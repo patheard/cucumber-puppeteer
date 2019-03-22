@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>scrollToElement - Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      
+      #second {
+        margin: 250px;
+        height: 800px;
+        width: 2000px;
+        background-color: coral;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>scrollToElement</h1>
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    <h1 id="first">
+      <a id="first-a" href="#" onclick="scrollFunction('second');return false;">Click me to scroll to second element
+        <p id="first-clue"></p></a>
+    </h1>
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    <div id="second">
+      <a id="second-a" href="#" onclick="scrollFunction('third');return false;">Click me to scroll to third element
+        <p id="second-clue"></p></a>
+    </div>
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    <p id="third">
+      <p id="third-clue"></p>
+      <a id="third-a" href="#" onclick="scrollFunction('fourth');return false;">Click me to scroll to fourth element</a>
+    </p>
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    <input id="fourth" type="text">
+    <p id="fourth-clue"></p>
+    <a id="fourth-a" href="#" onclick="scrollFunction('first');return false;">Click me to scroll to first element</a>
+    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+
+    <script>
+      function scrollFunction(id) {
+        let elmnt = document.getElementById(id);
+        let elmnt_a_tag = document.getElementById(id + "-a").focus();
+        let clue = document.getElementById(id + "-clue");
+        elmnt.scrollIntoView();
+      }
+
+      function elementsInViewPort() {
+        let first = document.querySelector("#first");
+        let second = document.querySelector("#second");
+        let third = document.querySelector("#third");
+        let fourth = document.querySelector("#fourth");
+
+        // Gives a clue if element is in viewport
+        if (inViewport(first)) {
+          let clue = document.querySelector("#first-clue");
+          clue.innerHTML = "In View";
+        } else {
+          let clue = document.querySelector("#first-clue");
+          clue.innerHTML = "Out of View";
+        }
+
+        // Gives a clue if element is in viewport
+        if (inViewport(second)) {
+          let clue = document.querySelector("#second-clue");
+          clue.innerHTML = "In View";
+        } else {
+          let clue = document.querySelector("#second-clue");
+          clue.innerHTML = "Out of View";
+        }
+
+        // Gives a clue if element is in viewport
+        if (inViewport(third)) {
+          let clue = document.querySelector("#third-clue");
+          clue.innerHTML = "In View";
+        } else {
+          let clue = document.querySelector("#third-clue");
+          clue.innerHTML = "Out of View";
+        }
+
+        // Gives a clue if element is in viewport
+        if (inViewport(fourth)) {
+          let clue = document.querySelector("#fourth-clue");
+          clue.innerHTML = "In View";
+        } else {
+          let clue = document.querySelector("#fourth-clue");
+          clue.innerHTML = "Out of View";
+        }
+
+      }
+
+      function inViewport(element) {
+        // Get the elements position relative to the viewport
+
+        var bb = element.getBoundingClientRect();
+
+        // Check if the element is outside the viewport
+        // Then invert the returned value because you want to know the opposite
+
+        return !(bb.top > innerHeight || bb.bottom < 0);
+      }
+
+      document.addEventListener("scroll", event => {
+        // Check the viewport status
+
+        elementsInViewPort();
+      });
+
+      // Check the viewport status on start
+      elementsInViewPort();
+    </script>
+  </body>
+</html>
