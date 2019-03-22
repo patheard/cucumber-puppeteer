@@ -13,6 +13,7 @@ const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
 const resizeScreenSize = require("../support/action/resizeScreenSize");
+const scrollToElement = require('../support/action/scrollToElement');
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -80,6 +81,11 @@ Then(
 );
 
 Then(
-    /^I resize the browser to (\d+) pixels width and (\d+) pixels height$/,
+    /^I resize the browser to (\d+) pixels width and (\d+) pixels height$/, 
     resizeScreenSize
+);
+
+Then(
+    /^I scroll to the element "([^"]*)?"$/, 
+    scrollToElement
 );
