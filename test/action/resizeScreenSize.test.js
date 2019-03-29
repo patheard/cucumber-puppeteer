@@ -2,7 +2,6 @@ const resizeScreenSize = require('../../features/support/action/resizeScreenSize
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
 
-const testTimeout = 30000;
 const testUrl = 'http://localhost:8080/resizeScreenSize.html';
 const browserScope = new BrowserScope();
 
@@ -20,27 +19,20 @@ describe('resizeScreenSize', () => {
     await resizeScreenSize.call(browserScope, 600, 400);
     await resizeScreenSize.call(browserScope, 1285, 450);
     await resizeScreenSize.call(browserScope, 729, 500);
-  }, testTimeout);
+  });
 
   it('cannot resize screen size to a invalid height parameter in pixels', async () => {
-    await expect(resizeScreenSize.call(browserScope, 600, null)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, 600, undefined)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, 600, '500')).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, 600, 729.12)).rejects.toThrow('Error: input is invalid');
-  }, testTimeout);
+    await expect(resizeScreenSize.call(browserScope, 600, null)).rejects.toThrow('Error: width "600" or height "null" is invalid');
+    await expect(resizeScreenSize.call(browserScope, 600, undefined)).rejects.toThrow('Error: width "600" or height "undefined" is invalid');
+    await expect(resizeScreenSize.call(browserScope, 600, '500')).rejects.toThrow('Error: width "600" or height "500" is invalid');
+    await expect(resizeScreenSize.call(browserScope, 600, 729.12)).rejects.toThrow('Error: width "600" or height "729.12" is invalid');
+  });
 
   it('cannot resize screen size to a invalid width parameter in pixels', async () => {
-    await expect(resizeScreenSize.call(browserScope, null, 600)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, undefined, 600)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, '500', 600)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, 600.55, 729)).rejects.toThrow('Error: input is invalid');
-  }, testTimeout);
-
-  it('cannot resize screen size to a invalid width and height in pixels', async () => {
-    await expect(resizeScreenSize.call(browserScope, null, null)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, undefined, undefined)).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, "600", "400")).rejects.toThrow('Error: input is invalid');
-    await expect(resizeScreenSize.call(browserScope, 600.55, 729.12)).rejects.toThrow('Error: input is invalid');
-  }, testTimeout);
+    await expect(resizeScreenSize.call(browserScope, null, 600)).rejects.toThrow('Error: width "null" or height "600" is invalid');
+    await expect(resizeScreenSize.call(browserScope, undefined, 600)).rejects.toThrow('Error: width "undefined" or height "600" is invalid');
+    await expect(resizeScreenSize.call(browserScope, '500', 600)).rejects.toThrow('Error: width "500" or height "600" is invalid');
+    await expect(resizeScreenSize.call(browserScope, 600.55, 729)).rejects.toThrow('Error: width "600.55" or height "729" is invalid');
+  });
 
 }); 
