@@ -5,9 +5,9 @@ Feature: resizeScreenSize
   
   Scenario: Resize screen size
     When  I open the url "http://localhost:8080/resizeScreenSize.html"
-    Then  I resize the browser to 600 pixels width and 400 pixels height
-    And   I expect the element "#boxwidth" contains text "Box width : 100"
+    And   I set the browser viewport to 600px width by 400px height
+    Then  I expect the element "#boxwidth" contains text "Box width : 100"
 
   Scenario: Verifies resized screen
-    When  I set the browser size to 1280 pixels width and 680 pixels height
-    And   I expect the element "#boxwidth" contains text "Box width : 700"
+    When  I set the browser viewport to 1280px width by 680px height
+    Then   I expect the element "#boxwidth" contains text "Box width : 700"

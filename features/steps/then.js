@@ -79,13 +79,3 @@ Then(
     /^I expect the cookie "([^"]*)?"( not)* exist?$/,
     checkCookieExists
 );
-
-Then(
-    /^I resize the browser to (\d+) pixels width and (\d+) pixels height$/, 
-    resizeScreenSize
-);
-
-Then(
-    /^I scroll to the element "([^"]*)?"$/, 
-    scrollToElement
-);

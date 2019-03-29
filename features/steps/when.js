@@ -33,11 +33,11 @@ When(
 );
 
 When(
-    /^I set the browser size to (\d+) pixels width and (\d+) pixels height$/,
+    /^I set the browser viewport to (\d+)px width by (\d+)px height$/,
     resizeScreenSize
 );
 
 When(
-    /^I scroll to element "([^"]*)?"$/, 
+    /^I scroll to the element "([^"]*)?"$/, 
     scrollToElement
 );
