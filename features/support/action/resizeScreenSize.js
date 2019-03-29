@@ -6,12 +6,11 @@
 module.exports = async function(width, height) {
 
     try {
-      //Set viewport to a given width and height
+      //Set viewport to a given width and height and wait a second to allow the viewport change to finish
       await this.page.setViewport({width, height});
-
       await this.page.waitFor(1000);
       
     }catch (e){
-      throw new Error(`Error: input is invalid`);
+      throw new Error(`Error: width "${width}" or height "${height}" is invalid`);
     }
 };
