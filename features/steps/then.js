@@ -12,6 +12,8 @@ const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
+const resizeScreenSize = require("../support/action/resizeScreenSize");
+const checkTitleContains = require("../support/check/checkTitleContains");
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -83,4 +85,14 @@ Then(
 Then(
     /^I expect the cookie "([^"]*)?"( not)* exist?$/,
     checkCookieExists
+);
+
+Then(
+    /^I resize the browser to (\d+) pixels width and (\d+) pixels height$/,
+    resizeScreenSize
+);
+
+Then(
+    /^I expect "([^"]*)"( not)* to be contained in page title$/,
+    checkTitleContains
 );
