@@ -12,6 +12,7 @@ const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
 const openUrl = require('../support/action/openUrl');
+const checkTitleContains = require("../support/check/checkTitleContains");
 
 Given(
     /^the url "([^"]*)?" is opened$/, 
@@ -83,4 +84,9 @@ Given(
 Given(
     /^the cookie "([^"]*)?"( not)* exist?$/,
     checkCookieExists
+);
+
+Given(
+    /^"([^"]*)?"( not)* to be contained in page title$/, 
+    checkTitleContains
 );
