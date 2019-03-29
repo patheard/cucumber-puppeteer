@@ -7,17 +7,19 @@ const assert = require('assert').strict;
 module.exports = async function(selector) {
 
     let prob = null;
+
     /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
-        try {
-            //Scroll desire element into view
-            await this.page.$eval(selector, el => el.scrollIntoView());
+    try {
+        
+        //Scroll desire element into view
+        await this.page.$eval(selector, el => el.scrollIntoView());
 
-            //Wait  a second 
-            await this.page.waitFor(1000);
+        //Wait  a second 
+        await this.page.waitFor(1000);
 
-        } catch (error) {
-            prob = error;
-        }
+    } catch (error) {
+        prob = error;
+    }
 
-        assert(prob === null, `Error: failed to scroll to element matching selector "${selector}"`)
+    assert(prob === null, `Error: failed to scroll to element matching selector "${selector}"`);
 };

@@ -13,119 +13,87 @@
         background-color: coral;
       }
 
+      .spacer {
+        margin-bottom: 850px!important;
+      }
+
     </style>
   </head>
   <body>
     <h1>scrollToElement</h1>
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    <h1 id="first">
+    <!-- First Element -->
+    <h1 id="first" class="spacer">
       <a id="first-a" href="#" onclick="scrollFunction('second');return false;">Click me to scroll to second element
         <p id="first-clue"></p></a>
     </h1>
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    <div id="second">
+    <!-- Second Element -->
+    <div id="second" class="spacer">
       <a id="second-a" href="#" onclick="scrollFunction('third');return false;">Click me to scroll to third element
         <p id="second-clue"></p></a>
     </div>
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    <p id="third">
-      <p id="third-clue"></p>
-      <a id="third-a" href="#" onclick="scrollFunction('fourth');return false;">Click me to scroll to fourth element</a>
-    </p>
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-    <input id="fourth" type="text">
-    <p id="fourth-clue"></p>
-    <a id="fourth-a" href="#" onclick="scrollFunction('first');return false;">Click me to scroll to first element</a>
-    .<br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
+    <!-- Third Element -->
+    <div class="spacer">
+      <p id="third" >
+          Third Element
+        <p id="third-clue"></p>
+        <a id="third-a" href="#" onclick="scrollFunction('fourth');return false;">Click me to scroll to fourth element</a>
+      </p>
+    </div>
+    <!-- Fourth Element -->
+    <div class="spacer">
+      <input id="fourth" type="text" value="input-field">
+      <p id="fourth-clue"></p>
+      <a id="fourth-a" href="#" onclick="scrollFunction('first');return false;">Click me to scroll to first element</a>
+    </div>
 
     <script>
       function scrollFunction(id) {
-        let elmnt = document.getElementById(id);
-        let elmnt_a_tag = document.getElementById(id + "-a").focus();
-        let clue = document.getElementById(id + "-clue");
+        const elmnt = document.getElementById(id);
+        const elmnt_a_tag = document.getElementById(id + "-a").focus();
+        const clue = document.getElementById(id + "-clue");
         elmnt.scrollIntoView();
       }
 
       function elementsInViewPort() {
-        let first = document.querySelector("#first");
-        let second = document.querySelector("#second");
-        let third = document.querySelector("#third");
-        let fourth = document.querySelector("#fourth");
+        const first = document.querySelector("#first");
+        const second = document.querySelector("#second");
+        const third = document.querySelector("#third");
+        const fourth = document.querySelector("#fourth");
+        let clue;
 
         // Gives a clue if element is in viewport
         if (inViewport(first)) {
-          let clue = document.querySelector("#first-clue");
+          clue = document.querySelector("#first-clue");
           clue.innerHTML = "In View";
         } else {
-          let clue = document.querySelector("#first-clue");
+          clue = document.querySelector("#first-clue");
           clue.innerHTML = "Out of View";
         }
 
         // Gives a clue if element is in viewport
         if (inViewport(second)) {
-          let clue = document.querySelector("#second-clue");
+          clue = document.querySelector("#second-clue");
           clue.innerHTML = "In View";
         } else {
-          let clue = document.querySelector("#second-clue");
+          clue = document.querySelector("#second-clue");
           clue.innerHTML = "Out of View";
         }
 
         // Gives a clue if element is in viewport
         if (inViewport(third)) {
-          let clue = document.querySelector("#third-clue");
+          clue = document.querySelector("#third-clue");
           clue.innerHTML = "In View";
         } else {
-          let clue = document.querySelector("#third-clue");
+          clue = document.querySelector("#third-clue");
           clue.innerHTML = "Out of View";
         }
 
         // Gives a clue if element is in viewport
         if (inViewport(fourth)) {
-          let clue = document.querySelector("#fourth-clue");
+          clue = document.querySelector("#fourth-clue");
           clue.innerHTML = "In View";
         } else {
-          let clue = document.querySelector("#fourth-clue");
+          clue = document.querySelector("#fourth-clue");
           clue.innerHTML = "Out of View";
         }
 
@@ -134,7 +102,7 @@
       function inViewport(element) {
         // Get the elements position relative to the viewport
 
-        var bb = element.getBoundingClientRect();
+        const bb = element.getBoundingClientRect();
 
         // Check if the element is outside the viewport
         // Then invert the returned value because you want to know the opposite
