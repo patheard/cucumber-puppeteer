@@ -1,3 +1,4 @@
+const checkContainsText = require('../../features/support/check/checkContainsText');
 const scrollToElement = require('../../features/support/action/scrollToElement');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
@@ -17,8 +18,17 @@ describe('setElementValue', () => {
 
     it('scroll to a given element', async () => {
         await scrollToElement.call(browserScope, '#second');
+        await checkContainsText.call(browserScope, '#second-clue', null, 'In View');
+        await checkContainsText.call(browserScope, '#first-clue', null, 'Out of View');
+        await checkContainsText.call(browserScope, '#third-clue', null, 'Out of View');
+
         await scrollToElement.call(browserScope, '#third');
-        await scrollToElement.call(browserScope, '#first');
+        await checkContainsText.call(browserScope, '#third-clue', null, 'In View');
+        await checkContainsText.call(browserScope, '#first-clue', null, 'Out of View');
+
+        await scrollToElement.call(browserScope, '#fourth');
+        await checkContainsText.call(browserScope, '#fourth-clue', null, 'In View');
+        await checkContainsText.call(browserScope, '#second-clue', null, 'Out of View');
     });
    
     it('does not find elements that do not exist on the page', async () => {
