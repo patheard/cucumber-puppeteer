@@ -11,6 +11,12 @@ const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
+const openUrl = require('../support/action/openUrl');
+
+Given(
+    /^the url "([^"]*)?" is opened$/, 
+    openUrl
+);
 
 Given(
     /^the element "([^"]*)?" is( not)* visible$/,
