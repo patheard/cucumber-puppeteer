@@ -10,4 +10,4 @@ Feature: resizeScreenSize
 
   Scenario: Verifies resized screen
     When  I set the browser viewport to 1280px width by 680px height
-    Then   I expect the element "#boxwidth" contains text "Box width : 700"
+    Then  I expect the element "#boxwidth" contains text "Box width : 700"

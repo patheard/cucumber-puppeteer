@@ -1,3 +1,4 @@
+const checkContainsText = require('../../features/support/check/checkContainsText');
 const resizeScreenSize = require('../../features/support/action/resizeScreenSize');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
@@ -17,8 +18,9 @@ describe('resizeScreenSize', () => {
 
   it('resize sreen size to a given width and height in pixels', async () => {
     await resizeScreenSize.call(browserScope, 600, 400);
-    await resizeScreenSize.call(browserScope, 1285, 450);
-    await resizeScreenSize.call(browserScope, 729, 500);
+    await checkContainsText.call(browserScope, '#boxwidth', null, 'Box width : 100');
+    await resizeScreenSize.call(browserScope, 1280, 680);
+    await checkContainsText.call(browserScope, '#boxwidth', null, 'Box width : 700');
   });
 
   it('cannot resize screen size to a invalid height parameter in pixels', async () => {
