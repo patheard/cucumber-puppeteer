@@ -19,8 +19,15 @@ Given(
 );
 
 Given(
-    /^the element "([^"]*)?" is( not)* visible$/,
-    checkElementVisible
+    /^the element "([^"]*)" is( not)? visible$/, async function(selector, not){
+        await checkElementVisible.call(this, selector, not); 
+    }    
+);
+
+Given(
+    /^the element "([^"]*)" is( not)? visible after "([^"]*)" seconds$/, async function(selector, not, seconds){
+        await checkElementVisible.call(this, selector, not, seconds); 
+    }    
 );
 
 Given(
