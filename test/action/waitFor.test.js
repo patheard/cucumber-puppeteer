@@ -17,7 +17,7 @@ describe('waitFor', () => {
 
   it('waits a specified integer period of time', async () => {
     const startTime = new Date().getTime();
-    await waitFor.call(browserScope, '2');
+    await waitFor.call(browserScope, '2.1');
     const endTime = new Date().getTime();
 
     expect(endTime - startTime).toBeGreaterThanOrEqual(2000);
@@ -25,7 +25,7 @@ describe('waitFor', () => {
 
   it('waits a specified decimal period of time', async () => {
     const startTime = new Date().getTime();
-    await waitFor.call(browserScope, '1.5');
+    await waitFor.call(browserScope, '1.6');
     const endTime = new Date().getTime();
 
     expect(endTime - startTime).toBeGreaterThanOrEqual(1500);

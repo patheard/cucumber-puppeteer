@@ -19,8 +19,15 @@ Then(
 );
 
 Then(
-    /^I expect the element "([^"]*)" is( not)? visible$/, 
-    checkElementVisible
+    /^I expect the element "([^"]*)" is( not)? visible$/, async function(selector, not){
+        await checkElementVisible.call(this, selector, not); 
+    }    
+);
+
+Then(
+    /^I expect the element "([^"]*)" is( not)? visible after "([^"]*)" seconds$/, async function(selector, not, seconds){
+        await checkElementVisible.call(this, selector, not, seconds); 
+    }    
 );
 
 Then(

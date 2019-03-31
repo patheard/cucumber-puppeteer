@@ -18,6 +18,7 @@ describe('checkElementVisible', () => {
 
   it('finds visible elements', async () => {    
     await checkElementVisible.call(browserScope, '.visible');
+    await checkElementVisible.call(browserScope, '.visible', null, '2');
   });
 
   it('does not find hidden elements', async () => {
@@ -26,6 +27,7 @@ describe('checkElementVisible', () => {
 
   it('finds hidden elements when told to look for them', async () => {
     await checkElementVisible.call(browserScope, '.hidden', 'not');
+    await checkElementVisible.call(browserScope, '.hidden', 'not', '1.5');
   }); 
 
   it('does not finds elements that are visible if told they should be hidden', async () => {
