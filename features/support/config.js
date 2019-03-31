@@ -2,7 +2,7 @@
  * Configure the test suite
  * https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md
  */
-const { After, AfterAll, Before, setDefaultTimeout, setWorldConstructor } = require('cucumber');
+const { After, AfterAll, Before, Status, setDefaultTimeout, setWorldConstructor } = require('cucumber');
 const FeatureScope = require('./scope/FeatureScope');
 const BrowserScope = require('./scope/BrowserScope');
 
@@ -28,8 +28,16 @@ Before(async function(scenario) {
 });
 
 // After hook for each scenario
-After(async function(){
+After(async function(scenario){
   featureScope.browserScope = this;
+
+  // Take a screenshot if a scenario fails and attach it to the test result output
+  if(scenario.result.status === Status.FAILED) {
+    const screenShotName = scenario.pickle.name.replace(/[\W_]+/g, '-');
+    await this.page.screenshot({
+      path: `./screenshots/error/${screenShotName}.png`
+    });
+  }
 });
 
 // After all feature tests are complete
