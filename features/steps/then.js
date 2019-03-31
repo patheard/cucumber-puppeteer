@@ -12,8 +12,6 @@ const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
-const resizeScreenSize = require("../support/action/resizeScreenSize");
-const scrollToElement = require('../support/action/scrollToElement');
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
