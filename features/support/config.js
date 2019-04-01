@@ -31,7 +31,7 @@ Before(async function(scenario) {
 After(async function(scenario){
   featureScope.browserScope = this;
 
-  // Take a screenshot if a scenario fails and attach it to the test result output
+  // Take a screenshot if a scenario fails
   if(scenario.result.status === Status.FAILED) {
     const screenShotName = scenario.pickle.name.replace(/[\W_]+/g, '-');
     await this.page.screenshot({
