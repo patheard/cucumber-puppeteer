@@ -14,6 +14,7 @@ const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
 const resizeScreenSize = require("../support/action/resizeScreenSize");
 const checkTitleContains = require("../support/check/checkTitleContains");
+const checkUrlContains = require("../support/check/checkUrlContains");
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -95,4 +96,9 @@ Then(
 Then(
     /^I expect "([^"]*)"( not)* to be contained in page title$/,
     checkTitleContains
+);
+
+Then(
+    /^I expect "([^"]*)"( not)* to be contained in page url$/,
+    checkUrlContains
 );
