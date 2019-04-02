@@ -6,6 +6,7 @@ const puppeteer = require('puppeteer');
 class BrowserScope {
     constructor(){
         this.browser = null;
+        this.config = null;
         this.page = null;
     }
 
@@ -13,6 +14,7 @@ class BrowserScope {
         this.close();
 
         this.page = null;
+        this.config = null;
         this.browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-dev-shm-usage'], 
             ignoreHTTPSErrors: true
@@ -23,8 +25,9 @@ class BrowserScope {
         if(this.browser)
             await this.browser.close();
         
-        this.page = null;
         this.browser = null;
+        this.config = null;
+        this.page = null;
     }
 }
 
