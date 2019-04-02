@@ -51,22 +51,22 @@ Then(
 );
 
 Then(
-    /^I expect the attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
+    /^I expect the attribute "([^"]*)?" from element "([^"]*)?" is( not)? "([^"]*)?"$/,
     checkAttribute
 );
 
 Then(
-    /^I expect the element "([^"]*)?" is( not)* on the page$/,
+    /^I expect the element "([^"]*)?" is( not)? on the page$/,
     checkElementExists
 );
 
 Then(
-    /^I expect the element "([^"]*)?" is( not)* empty$/,
+    /^I expect the element "([^"]*)?" is( not)? empty$/,
     checkIsEmpty
 );
 
 Then(
-    /^I expect the element "([^"]*)?" is( not)* enabled$/,
+    /^I expect the element "([^"]*)?" is( not)? enabled$/,
     checkElementEnabled
 );
 
@@ -76,17 +76,17 @@ Then(
 );
 
 Then(
-    /^I expect the element "([^"]*)?" is( not)* checked$/,
+    /^I expect the element "([^"]*)?" is( not)? checked$/,
     checkIsChecked
 );
 
 Then(
-    /^I expect the cookie "([^"]*)?" value is( not)* "([^"]*)?"$/,
+    /^I expect the cookie "([^"]*)?" value is( not)? "([^"]*)?"$/,
     checkCookieValue
 );
 
 Then(
-    /^I expect the cookie "([^"]*)?"( not)* exist?$/,
+    /^I expect the cookie "([^"]*)?"( not)? exist?$/,
     checkCookieExists
 );
 
