@@ -96,12 +96,12 @@ Then(
 );
 
 Then(
-    /^I expect "([^"]*)"( not)* to be contained in page title$/,
+    /^I expect the page title (does not )?contains? "([^"]*)?"$/,
     checkTitleContains
 );
 
 Then(
-    /^I expect "([^"]*)"( not)* to be contained in page url$/,
+    /^I expect the page url (does not )?contains? "([^"]*)?"$/,
     checkUrlContains
 );
 
