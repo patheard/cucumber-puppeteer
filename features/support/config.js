@@ -30,10 +30,10 @@ Before(async function(scenario) {
 
 // Run once before tests
 BeforeAll(async function(){
-  makeDirectory('./screenshots/diff')
-  makeDirectory('./screenshots/error')
-  makeDirectory('./screenshots/reference')
-  makeDirectory('./screenshots/taken')
+  makeDirectory('./screenshots/compare');
+  makeDirectory('./screenshots/diff');
+  makeDirectory('./screenshots/error');
+  makeDirectory('./screenshots/ref');
 });
 
 // After hook for each scenario

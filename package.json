@@ -25,6 +25,7 @@
   "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
   "dependencies": {
     "cucumber": "^5.1.0",
+    "pixelmatch": "^4.0.2",
     "puppeteer": "^1.13.0"
   },
   "devDependencies": {
