@@ -53,7 +53,7 @@ After(async function(scenario){
   if(scenario.result.status === Status.FAILED) {
     const screenShotName = scenario.pickle.name.replace(/[\W_]+/g, '-');
     await this.page.screenshot({
-      path: `${screenshotPath}/error/${screenShotName}.png`
+      path: `${config.screenshotPath}/error/${screenShotName}.png`
     });
   }
 });
