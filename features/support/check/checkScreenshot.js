@@ -8,14 +8,14 @@ const pixelmatch = require('pixelmatch');
  * (if it exists).  If the reference does not exist, the screenshot is saved as the reference
  * and the test is marked as failed.
  * @param {String} screenName The name of the screenshot to take
- * @param {String} rootDir The root directory to save screenshots in.  Defaults to './screenshots'.
+ * @param {String} rootDir The root directory to save screenshots in.  If not specified, it's taken from the BrowserScope.config.screenshotPath property.
  */
 module.exports = async function(screenName, rootDir) {
-  const screenshotDir = rootDir ? rootDir : './screenshots';
+  const screenshotPath = rootDir ? rootDir : this.config.screenshotPath;
   const environment = process.env.ENV ? `-${process.env.ENV}` : ''; // Allow for different screenshots per environment  
-  const pathCompare = `${screenshotDir}/compare/${screenName}${environment}.png`;
-  const pathDiff = `${screenshotDir}/diff/${screenName}${environment}.png`;
-  const pathRef = `${screenshotDir}/ref/${screenName}${environment}.png`;
+  const pathCompare = `${screenshotPath}/compare/${screenName}${environment}.png`;
+  const pathDiff = `${screenshotPath}/diff/${screenName}${environment}.png`;
+  const pathRef = `${screenshotPath}/ref/${screenName}${environment}.png`;
 
   await this.page.screenshot({path: pathCompare, fullPage : true});
 
