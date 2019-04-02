@@ -22,7 +22,7 @@ module.exports = async function(screenName, rootDir) {
   // If there's no reference screenshot, save the taken screenshot as the new reference
   if(!fs.existsSync(pathRef)){
     fs.copyFileSync(pathCompare, pathRef);
-    assert(false, `Expected reference screenshot to exist`);
+    throw new Error('Expected reference screenshot to exist');
 
   // Compare the two screenshots
   } else {

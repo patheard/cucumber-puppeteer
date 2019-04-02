@@ -5,6 +5,11 @@ const BrowserScope = require('../../features/support/scope/BrowserScope');
 
 const testUrl = 'http://localhost:8080/checkScreenshot.html';
 const browserScope = new BrowserScope();
+const deleteImage = (path) => {
+  if(fs.existsSync(path)){
+    fs.unlinkSync(path);
+  }
+};
 
 beforeAll(async () => {
   await browserScope.init();
@@ -14,8 +19,9 @@ afterAll(async () => {
   await browserScope.close();
 
   // Delete screenshots from the test run
-  fs.unlinkSync('./test/screenshots/compare/missing.png');
-  fs.unlinkSync('./test/screenshots/ref/missing.png');
+  const environment = process.env.ENV ? `-${process.env.ENV}` : '';
+  deleteImage(`./test/screenshots/compare/missing${environment}.png`);
+  deleteImage(`./test/screenshots/ref/missing${environment}.png`);
 });
 
 describe('checkScreenshot', () => {
