@@ -44,7 +44,7 @@ Given(
 );
 
 Given(
-    /^the attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
+    /^the attribute "([^"]*)?" from element "([^"]*)?" is( not)? "([^"]*)?"$/,
     checkAttribute
 );
 
@@ -54,17 +54,17 @@ Given(
 );
 
 Given(
-    /^element "([^"]*)?" is( not)* on the page$/,
+    /^element "([^"]*)?" is( not)? on the page$/,
     checkElementExists
 );
 
 Given(
-    /^the element "([^"]*)?" is( not)* empty$/,
+    /^the element "([^"]*)?" is( not)? empty$/,
     checkIsEmpty
 );
 
 Given(
-    /^the element "([^"]*)?" is( not)* checked$/,
+    /^the element "([^"]*)?" is( not)? checked$/,
     checkIsChecked
 );
 
@@ -74,17 +74,17 @@ Given(
 );
 
 Given(
-    /^the element "([^"]*)?" is( not)* enabled$/,
+    /^the element "([^"]*)?" is( not)? enabled$/,
     checkElementEnabled
 );
 
 Given(
-    /^the cookie "([^"]*)?" value is( not)* "([^"]*)?"$/,
+    /^the cookie "([^"]*)?" value is( not)? "([^"]*)?"$/,
     checkCookieValue
 );
 
 Given(
-    /^the cookie "([^"]*)?"( not)* exist?$/,
+    /^the cookie "([^"]*)?"( not)? exist?$/,
     checkCookieExists
 );
 
