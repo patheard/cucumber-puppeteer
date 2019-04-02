@@ -11,6 +11,7 @@ const checkHasFocus = require("../support/check/checkHasFocus");
 const checkIsChecked = require('../support/check/checkIsChecked');
 const checkCookieExists = require("../support/check/checkCookieExists");
 const checkCookieValue = require("../support/check/checkCookieValue");
+const checkScreenshot = require("../support/check/checkScreenshot");
 const openUrl = require('../support/action/openUrl');
 const checkTitleContains = require("../support/check/checkTitleContains");
 const checkUrlContains = require("../support/check/checkUrlContains");
@@ -95,4 +96,10 @@ Given(
 Given(
     /^"([^"]*)?"( not)* to be contained in page url$/, 
     checkUrlContains
+);
+
+Given(
+    /^the screenshot of "([^"]*)?" matches the web page?$/, async function(filename){
+        await checkScreenshot.call(this, filename); 
+    }    
 );

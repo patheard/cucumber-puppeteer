@@ -60,4 +60,8 @@ typings/
 # next.js build output
 .next
 
-screenshots/
+/screenshots/compare
+/screenshots/diff
+/screenshots/error
+/test/screenshots/compare/*.png
+/test/screenshots/diff/*.png

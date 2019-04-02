@@ -15,6 +15,8 @@ const checkCookieValue = require("../support/check/checkCookieValue");
 const resizeScreenSize = require("../support/action/resizeScreenSize");
 const checkTitleContains = require("../support/check/checkTitleContains");
 const checkUrlContains = require("../support/check/checkUrlContains");
+const checkScreenshot = require("../support/check/checkScreenshot");
+
 
 Then(
     /^I expect that the title is "([^"]*)"$/, 
@@ -101,4 +103,10 @@ Then(
 Then(
     /^I expect "([^"]*)"( not)* to be contained in page url$/,
     checkUrlContains
+);
+
+Then(
+    /^I expect the screenshot of "([^"]*)?" matches the web page?$/, async function(filename){
+        await checkScreenshot.call(this, filename); 
+    }    
 );
