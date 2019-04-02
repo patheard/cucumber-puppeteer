@@ -17,29 +17,29 @@ afterAll(async () => {
 describe('checkUrl', () => {
 
   it('identifies a subpart of a URL', async () => {    
-    await checkUrlContains.call(browserScope, "with=some");
+    await checkUrlContains.call(browserScope, null, "with=some");
   });
 
   it('identifies a full match of a URL', async () => {    
-    await checkUrlContains.call(browserScope, testUrl);
+    await checkUrlContains.call(browserScope, null, testUrl);
   });
 
   it('identifies a non-subpart of a URL', async () => {    
-    await checkUrlContains.call(browserScope, "#", 'not');
+    await checkUrlContains.call(browserScope, 'not', '#');
   });
 
   it("fails when told that URL should contain a specific text, but it doesn't actually contain it", async () => {
-    await expect(checkUrlContains.call(browserScope, 'uncheckTitle')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "uncheckTitle"');
+    await expect(checkUrlContains.call(browserScope, null, 'uncheckTitle')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "uncheckTitle"');
   });
   
   it('fails when told that URL should not contain a specific text, but it does actually contain it', async () => {
-    await expect(checkUrlContains.call(browserScope, 'checkTitle', 'not')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to not contain "checkTitle"');
+    await expect(checkUrlContains.call(browserScope, 'not', 'checkTitle')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to not contain "checkTitle"');
   });
 
   it('fails when url is empty', async () => {   
-    await expect(checkUrlContains.call(browserScope, '')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain ""');
-    await expect(checkUrlContains.call(browserScope, null)).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "null"');
-    await expect(checkUrlContains.call(browserScope, undefined)).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "undefined"');
+    await expect(checkUrlContains.call(browserScope, null, '')).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain ""');
+    await expect(checkUrlContains.call(browserScope, null, null)).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "null"');
+    await expect(checkUrlContains.call(browserScope, null, undefined)).rejects.toThrow('Expected "http://localhost:8080/checkTitle.html?with=some&url=params&for=good&measure" to contain "undefined"');
   }); 
 
 }); 

@@ -89,12 +89,12 @@ Given(
 );
 
 Given(
-    /^"([^"]*)?"( not)* to be contained in page title$/, 
+    /^the page title (does not )?contains? "([^"]*)?"$/, 
     checkTitleContains
 );
 
 Given(
-    /^"([^"]*)?"( not)* to be contained in page url$/, 
+    /^the page url (does not )?contains? "([^"]*)?"$/, 
     checkUrlContains
 );
 
