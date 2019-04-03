@@ -12,7 +12,7 @@ const pixelmatch = require('pixelmatch');
  */
 module.exports = async function(screenName, rootDir) {
   const screenshotPath = rootDir ? rootDir : this.config.screenshotPath;
-  const environment = process.env.ENV ? `-${process.env.ENV}` : ''; // Allow for different screenshots per environment  
+  const environment = this.config.environment ? `-${this.config.environment}` : ''; // Allow for different screenshots per environment  
   const pathCompare = `${screenshotPath}/compare/${screenName}${environment}.png`;
   const pathDiff = `${screenshotPath}/diff/${screenName}${environment}.png`;
   const pathRef = `${screenshotPath}/ref/${screenName}${environment}.png`;
