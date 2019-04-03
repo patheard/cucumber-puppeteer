@@ -2,13 +2,12 @@ const checkScreenshot = require('../../features/support/check/checkScreenshot');
 const fs = require('fs');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
+const { deleteFile, pathExists } = require('../../features/support/util/FileSystem');
 
 const testUrl = 'http://localhost:8080/checkScreenshot.html';
 const browserScope = new BrowserScope();
-const deleteImage = (path) => {
-  if(fs.existsSync(path)){
-    fs.unlinkSync(path);
-  }
+const getEnvironmentToken = (env) => {
+  return env ? `-${env}` : '';
 };
 
 beforeAll(async () => {
@@ -23,9 +22,9 @@ beforeAll(async () => {
 });
 afterAll(async () => {
   // Delete screenshots from the test run
-  const environment = browserScope.config.environment ? `-${browserScope.config.environment}` : '';
-  deleteImage(`./test/screenshots/compare/missing${environment}.png`);
-  deleteImage(`./test/screenshots/ref/missing${environment}.png`);
+  const environment = getEnvironmentToken(browserScope.config.environment);
+  deleteFile(`${browserScope.config.screenshotPath}/compare/missing${environment}.png`);
+  deleteFile(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`);
 
   await browserScope.close();  
 });
@@ -40,9 +39,16 @@ describe('checkScreenshot', () => {
     await checkScreenshot.call(browserScope, 'ccc-landing', './test/screenshots');
   });  
   
-  it('fails if the screenshot does not exist', async () => {  
+  it('fails if the screenshot does not exist', async () => { 
+    const environment = getEnvironmentToken(browserScope.config.environment);
+    expect(await pathExists(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`)).toBe(false);    
     await expect(checkScreenshot.call(browserScope, 'missing')).rejects.toThrow('Expected reference screenshot to exist');
   });
+
+  it('creates a new reference screenshot if the screenshot did not exist', async () => {
+    const environment = getEnvironmentToken(browserScope.config.environment);
+    expect(await pathExists(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`)).toBe(true);
+  });  
 
   it('fails if the screenshot does not match', async () => {    
     await expect(checkScreenshot.call(browserScope, 'ccc-landing-mismatch')).rejects.toThrow('Expected screenshots to match.');
