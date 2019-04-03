@@ -4,7 +4,7 @@
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
   "scripts": {
-    "start": "npx cucumber-js --format ./features/support/formatter/PrettyFormatter",
+    "start": "npx cucumber-js --format ./features/support/util/PrettyFormatter",
     "test": "jest --verbose",
     "test-server": "http-server -p 8080 ./test/html",
     "test-coverage": "codecov"
