@@ -19,6 +19,9 @@ const featureScope = new FeatureScope();
 // Config object passed to every test
 const config = {
 
+  // Environment the tests are running in
+  environment: process.env.ENV ? process.env.ENV : '',
+
   // Path used by checkScreenshot visual regression tests to save and compare screenshotss
   // Defaults to /test/screenshots if a SCREENSHOT_PATH environment variable isn't pressent.  
   screenshotPath: process.env.SCREENSHOT_PATH ? process.env.SCREENSHOT_PATH : './test/screenshots'
