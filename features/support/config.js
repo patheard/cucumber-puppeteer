@@ -5,7 +5,7 @@
 const { After, AfterAll, Before, BeforeAll, Status, setDefaultTimeout, setWorldConstructor } = require('cucumber');
 const FeatureScope = require('./scope/FeatureScope');
 const BrowserScope = require('./scope/BrowserScope');
-const fs = require('fs');
+const { createFolder } = require('./util/FileSystem');
 
 // Timeout, in milliseconds, for puppeteer actions
 setDefaultTimeout(10 * 1000);
@@ -29,10 +29,10 @@ const config = {
 
 // Run once before tests
 BeforeAll(async function(){
-  makeDirectory(`${config.screenshotPath}/compare`);
-  makeDirectory(`${config.screenshotPath}/diff`);
-  makeDirectory(`${config.screenshotPath}/error`);
-  makeDirectory(`${config.screenshotPath}/ref`);
+  await createFolder(`${config.screenshotPath}/compare`);
+  await createFolder(`${config.screenshotPath}/diff`);
+  await createFolder(`${config.screenshotPath}/error`);
+  await createFolder(`${config.screenshotPath}/ref`);
 });
 
 // Before hook for each scenario
@@ -65,13 +65,3 @@ After(async function(scenario){
 AfterAll(async function() {
   await featureScope.browserScope.close();
 });
-
-/**
- * Create a directory if it doesn't exist
- * @param {String} path Path of the directory to create.
- */
-function makeDirectory(path){
-  if (!fs.existsSync(path)) {
-    fs.mkdirSync(path, {recursive: true});
-  }
-}

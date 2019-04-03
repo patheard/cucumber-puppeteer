@@ -2,6 +2,11 @@ const assert = require('assert').strict;
 const fs = require('fs');
 const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
+const { promisify } = require('util');
+const { pathExists } = require('../util/FileSystem');
+
+// Create promise based versions of the callback functions
+const copyFile = promisify(fs.copyFile);
 
 /**
  * Takes a screenshot of the browser's current viewport and compares it to a reference screenshot
@@ -20,8 +25,8 @@ module.exports = async function(screenName, rootDir) {
   await this.page.screenshot({path: pathCompare, fullPage : true});
 
   // If there's no reference screenshot, save the taken screenshot as the new reference
-  if(!fs.existsSync(pathRef)){
-    fs.copyFileSync(pathCompare, pathRef);
+  if(!await pathExists(pathRef)){
+    await copyFile(pathCompare, pathRef);
     throw new Error('Expected reference screenshot to exist');
 
   // Compare the two screenshots
