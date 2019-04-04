@@ -1,5 +1,5 @@
 {
-  "name": "cucumber-and-puppeteer",
+  "name": "cucumber-puppeteer",
   "version": "1.0.0",
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/patheard/cucumber-and-puppeteer.git"
+    "url": "git+https://github.com/patheard/cucumber-puppeteer.git"
   },
   "keywords": [
     "cucumber",
@@ -20,9 +20,9 @@
   "author": "Pat Heard <patrick.heard@tpsgc-pwgsc.gc.ca>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/patheard/cucumber-and-puppeteer/issues"
+    "url": "https://github.com/patheard/cucumber-puppeteer/issues"
   },
-  "homepage": "https://github.com/patheard/cucumber-and-puppeteer#readme",
+  "homepage": "https://github.com/patheard/cucumber-puppeteer#readme",
   "dependencies": {
     "cucumber": "^5.1.0",
     "pixelmatch": "^4.0.2",
