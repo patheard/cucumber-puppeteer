@@ -13,7 +13,7 @@ When(
 );
 
 When(
-    /^I click the (?:element|button|link) "([^"]*)?"$/, 
+    /^I click the (?:element|button|link) "([^"]*)?"( and wait for the page to load)?$/, 
     clickElement
 );
 
