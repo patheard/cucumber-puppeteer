@@ -27,18 +27,18 @@ describe('clickElement', () => {
   });  
 
   it('clicks a link element to cause a page navigation', async () => {
-    await clickElement.call(browserScope, 'a.nav');
+    await clickElement.call(browserScope, 'a.nav', 'causes nav');
     await checkUrl.call(browserScope, null, 'http://localhost:8080/checkAttribute.html');
   });
 
   it('clicks a submit button to submit a form', async () => {
     await openUrl.call(browserScope, testUrl);
-    await clickElement.call(browserScope, '[type="submit"]');
+    await clickElement.call(browserScope, '[type="submit"]', 'causes nav');
     await checkUrl.call(browserScope, null, 'http://localhost:8080/checkContainsText.html?listenhere=meow');
   });    
 
   it('fails if the element does not exist', async () => {
-    await expect(clickElement.call(browserScope, '.bueller')).rejects.toThrow('Error: failed to find element matching selector ".bueller"');
+    await expect(clickElement.call(browserScope, '.bueller')).rejects.toThrow("No node found for selector: .bueller");
   });  
 
 }); 
