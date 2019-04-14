@@ -15,7 +15,7 @@ describe('BrowserScope', () => {
     browserScope = new BrowserScope();
     await browserScope.init();    
     expect(browserScope.page).toBe(null);
-    expect(browserScope.config).toBe(null);
+    expect(browserScope.config).not.toBe(null);
     expect(browserScope.browser).not.toBe(null);
 
     const browserVersion = await browserScope.browser.version();
