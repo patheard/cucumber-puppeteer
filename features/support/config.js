@@ -2,16 +2,27 @@
  * Configure the test suite
  * https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md
  */
-const { After, AfterAll, Before, BeforeAll, Status, setDefaultTimeout, setWorldConstructor } = require('cucumber');
+const { After, AfterAll, Before, BeforeAll, Status, defineParameterType, setDefaultTimeout, setWorldConstructor } = require('cucumber');
 const FeatureScope = require('./scope/FeatureScope');
 const BrowserScope = require('./scope/BrowserScope');
 const { createFolder } = require('./util/FileSystem');
+
+// Process .env file
+require('dotenv').config()
 
 // Timeout, in milliseconds, for puppeteer actions
 setDefaultTimeout(10 * 1000);
 
 // `BrowserScope` is provided to all hooks and test steps in a scenario as `this`
 setWorldConstructor(BrowserScope)
+
+// String environment variable.  If the string value starts with '$', it's assumed to be the key for an environment variable.
+defineParameterType({
+  regexp: /"([^"]*)"/,
+  transformer: (string) => string.startsWith('$') ? process.env[string.slice(1)] : string,
+  name: 'string-env',
+  useForSnippets: false
+});
 
 // Keep a consistent web browser and page for all scenarios in a feature file.
 const featureScope = new FeatureScope();
@@ -28,9 +39,9 @@ const config = {
   // Path used by checkScreenshot visual regression tests to save and compare screenshotss
   // Defaults to /test/screenshots if a SCREENSHOT_PATH environment variable isn't pressent.  
   screenshotPath: process.env.SCREENSHOT_PATH ? process.env.SCREENSHOT_PATH : './test/screenshots'
-} 
+}
 
-// Run once before tests
+// Create required folders
 BeforeAll(async function(){
   await createFolder(`${config.screenshotPath}/compare`);
   await createFolder(`${config.screenshotPath}/diff`);
@@ -38,7 +49,8 @@ BeforeAll(async function(){
   await createFolder(`${config.screenshotPath}/ref`);
 });
 
-// Before hook for each scenario
+
+// Use the same BrowserScope object for each scenario in a feature
 Before(async function(scenario) {
 
   // Check if the current scenario is in the same feature test

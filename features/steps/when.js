@@ -8,36 +8,37 @@ const resizeScreenSize = require('../support/action/resizeScreenSize')
 const scrollToElement = require('../support/action/scrollToElement');
 
 When(
-    /^I open the url "([^"]*)?"$/, 
+    'I open the url {string-env}', 
     openUrl
 );
 
 When(
+    // Used RegEx since cucumber expressions do not have a good way to do optional capturing groups that return their value
     /^I click the (?:element|button|link) "([^"]*)?"( and wait for the page to load)?$/, 
     clickElement
 );
 
 When(
-    /^I set the (?:element|input|select|textarea) "([^"]*)?" value to "([^"]*)?"$/, 
+    'I set the element/input/select/textarea {string} value to {string-env}', 
     setElementValue
 );
 
 When(
-    /^I wait for "([^"]*)?" seconds$/, 
+    'I wait for {float} seconds', 
     waitFor
 );
 
 When(
-    /^I delete the cookie "([^"]*)?"$/, 
+    'I delete the cookie {string-env}', 
     deleteCookie
 );
 
 When(
-    /^I set the browser viewport to (\d+)px width by (\d+)px height$/,
+    'I set the browser viewport to {int}px width by {int}px height',
     resizeScreenSize
 );
 
 When(
-    /^I scroll to the element "([^"]*)?"$/, 
+    'I scroll to the element {string}', 
     scrollToElement
 );

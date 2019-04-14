@@ -7,6 +7,6 @@ Feature: openUrl
     Given the url "http://localhost:8080/checkTitle.html" is opened
     Then  I expect the page url is "http://localhost:8080/checkTitle.html"
 
-  Scenario: Open a URL in a when step
-    When  I open the url "http://localhost:8080/waitFor.html"
+  Scenario: Open a URL in a when step using a root URL environment variable
+    When  I open the url "/waitFor.html"
     Then  I expect the page url is "http://localhost:8080/waitFor.html"
