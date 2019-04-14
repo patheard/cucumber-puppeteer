@@ -7,26 +7,21 @@ const FeatureScope = require('./scope/FeatureScope');
 const BrowserScope = require('./scope/BrowserScope');
 const { createFolder } = require('./util/FileSystem');
 
+// Process .env file
+require('dotenv').config()
+
 // Timeout, in milliseconds, for puppeteer actions
 setDefaultTimeout(10 * 1000);
 
 // `BrowserScope` is provided to all hooks and test steps in a scenario as `this`
 setWorldConstructor(BrowserScope)
 
-// Environment variable parameter type
-process.env.CHECK_ATTRIBUTE_URL = 'http://localhost:8080/checkAttribute.html';
+// String environment variable.  If the string value starts with '$', it's assumed to be the key for an environment variable.
 defineParameterType({
   regexp: /"([^"]*)"/,
-  transformer: (string) => {
-      let value = string;
-      if(string.startsWith('$')){
-        value = process.env[string.slice(1)];
-      }
-      return value;
-  },
-  name: 'env',
-  useForSnippets: false,
-  preferForRegexpMatch: true
+  transformer: (string) => string.startsWith('$') ? process.env[string.slice(1)] : string,
+  name: 'string-env',
+  useForSnippets: false
 });
 
 // Keep a consistent web browser and page for all scenarios in a feature file.
