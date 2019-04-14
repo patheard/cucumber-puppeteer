@@ -8,7 +8,7 @@ const resizeScreenSize = require('../support/action/resizeScreenSize')
 const scrollToElement = require('../support/action/scrollToElement');
 
 When(
-    /^I open the url "([^"]*)?"$/, 
+    'I open the url {env}', 
     openUrl
 );
 

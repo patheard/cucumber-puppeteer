@@ -4,7 +4,7 @@ Feature: checkAttribute
   I want to check if an element's attribute has a specific value
 
   Scenario: Check attributes
-    When  I open the url "http://localhost:8080/checkAttribute.html"
+    When  I open the url "$CHECK_ATTRIBUTE_URL"
     Then  I expect the attribute "class" from element "#cssClass" is "foobar bambaz"
     And   I expect the attribute "href" from element "#href" is "/somepage"
     And   I expect the attribute "data-favorite-snack" from element "ul" is "muffins" 
