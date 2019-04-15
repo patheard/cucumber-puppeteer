@@ -3,7 +3,7 @@
 
 ![Cucumber Puppeteer](https://raw.githubusercontent.com/patheard/cucumber-puppeteer/master/test/screenshots/ref/cucumber-puppeteer-full.png)
 
-A Node.js template for end-to-end testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).  Look at the `*.feature` files to see the different tests available.
+A Node.js template for testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
 * [Test steps](https://github.com/patheard/cucumber-puppeteer#user-content-test-steps)
 * [Use in your project](https://github.com/patheard/cucumber-puppeteer#user-content-use-in-your-project)
@@ -17,7 +17,7 @@ Look at the [`*.feature`](https://github.com/patheard/cucumber-puppeteer/tree/ma
 npm start        # after running `npm run test-server`
 ```
 
-Configuration and hooks are loaded from `/features/config.js`.  You can override behaviour with the following environment variables:
+Configuration and hooks are loaded from [`/features/support/config.js`](https://github.com/patheard/cucumber-puppeteer/blob/master/features/support/config.js).  You can override behaviour with the following environment variables:
 
 ```bash
 ENV              # Appended to screenshot names (default: '')
