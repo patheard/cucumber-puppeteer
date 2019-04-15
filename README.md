@@ -5,11 +5,16 @@
 
 A Node.js template for end-to-end testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).  Look at the `*.feature` files to see the different tests available.
 
-# Start tests
-Run all the `/features/**/*.feature` files in the project:  
+* [Test steps](https://github.com/patheard/cucumber-puppeteer#user-content-test-steps)
+* [Use in your project](https://github.com/patheard/cucumber-puppeteer#user-content-use-in-your-project)
+* [Unit tests](https://github.com/patheard/cucumber-puppeteer#user-content-unit-tests)
+* [License and credits](https://github.com/patheard/cucumber-puppeteer#user-content-license-and-credits)
+
+# Test steps
+Look at the [`*.feature`](https://github.com/patheard/cucumber-puppeteer/tree/master/features) files in the project to see the available test steps.  You can run them all with: 
 
 ```bash
-npm start        # requires Node.js 10+
+npm start        # after running `npm run test-server`
 ```
 
 Configuration and hooks are loaded from `/features/config.js`.  You can override behaviour with the following environment variables:
@@ -27,7 +32,7 @@ When I open the url "$TEST_URL"
 And  I set the element "[type='password']" value to "$TEST_PASSWORD"
 ```
 
-# Use in your own project
+# Use in your project
 To use this in your own project as a dependency, check out the [test-cuke](https://github.com/patheard/test-cuke) example.
 
 # Unit tests
@@ -36,7 +41,7 @@ To use this in your own project as a dependency, check out the [test-cuke](https
 npm test         # after running `npm run test-server`
 ```
 
-# License and Credits
+# License and credits
 
 This code is licensed under the MIT license.
 * Initial template from [anephenix/cucumber-and-puppeteer](https://github.com/anephenix/cucumber-and-puppeteer) 
