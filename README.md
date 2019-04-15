@@ -1,7 +1,7 @@
 [![circleci](https://img.shields.io/circleci/project/github/patheard/cucumber-puppeteer.svg)](https://circleci.com/gh/patheard/cucumber-puppeteer)
 [![codecov](https://codecov.io/gh/patheard/cucumber-puppeteer/branch/master/graph/badge.svg)](https://codecov.io/gh/patheard/cucumber-puppeteer)
 
-# Cucumber and Puppeteer
+![Cucumber Puppeteer](https://raw.githubusercontent.com/patheard/cucumber-puppeteer/master/test/screenshots/ref/cucumber-puppeteer-full.png)
 
 A Node.js template for end-to-end testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).  Look at the `*.feature` files to see the different tests available.
 
@@ -9,7 +9,7 @@ A Node.js template for end-to-end testing your app with [Cucumber.js](https://gi
 Run all the `/features/**/*.feature` files in the project:  
 
 ```bash
-npm start        # requires Node 10+
+npm start        # requires Node.js 10+
 ```
 
 Configuration and hooks are loaded from `/features/config.js`.  You can override behaviour with the following environment variables:
