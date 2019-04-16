@@ -3,12 +3,15 @@
 
 ![Cucumber Puppeteer](https://raw.githubusercontent.com/patheard/cucumber-puppeteer/master/test/screenshots/ref/cucumber-puppeteer-full.png)
 
-A Node.js template for testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
+A Node.js template for testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).  The test steps are designed to be generic so you can quickly create integration tests:
 
-* [Test steps](https://github.com/patheard/cucumber-puppeteer#user-content-test-steps)
-* [Use in your project](https://github.com/patheard/cucumber-puppeteer#user-content-use-in-your-project)
-* [Unit tests](https://github.com/patheard/cucumber-puppeteer#user-content-unit-tests)
-* [License and credits](https://github.com/patheard/cucumber-puppeteer#user-content-license-and-credits)
+```gherkin
+Scenario: Open a the search page and find products
+    When  I open the url "https://someurl.com/search"
+    And   I set the element ".search-box" value to "plumbus"
+    And   I click the button ".search-button"
+    Then  I expect the element ".results" contains text "3 results found"
+```
 
 # Test steps
 Look at the [`*.feature`](https://github.com/patheard/cucumber-puppeteer/tree/master/features) files in the project to see the available test steps.  You can run them all with: 
