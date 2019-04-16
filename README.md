@@ -6,11 +6,11 @@
 A Node.js template for testing your app with [Cucumber.js](https://github.com/cucumber/cucumber-js) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).  The test steps are designed to be generic so you can quickly create integration tests:
 
 ```gherkin
-Scenario: Open a the search page and find products
+Scenario: Open the search page and find products
     When  I open the url "https://someurl.com/search"
-    And   I set the element ".search-box" value to "plumbus"
+    And   I set the element "input[name='search']" value to "plumbus"
     And   I click the button ".search-button"
-    Then  I expect the element ".results" contains text "3 results found"
+    Then  I expect the element "#results > .result-count" contains text "3 products found"
 ```
 
 # Test steps
