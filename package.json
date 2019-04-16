@@ -30,12 +30,12 @@
     "cucumber": "^5.1.0",
     "dotenv": "^7.0.0",
     "pixelmatch": "^4.0.2",
-    "puppeteer": "^1.13.0"
+    "puppeteer": "^1.14.0"
   },
   "devDependencies": {
-    "codecov": "^3.2.0",
+    "codecov": "^3.3.0",
     "http-server": "^0.11.1",
-    "jest": "^24.1.0"
+    "jest": "^24.7.1"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
