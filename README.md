@@ -8,8 +8,8 @@ A Node.js template for testing your app with [Cucumber.js](https://github.com/cu
 ```gherkin
 Scenario: Open the search page and find products
     When  I open the url "https://someurl.com/search"
-    And   I set the element "input[name='search']" value to "plumbus"
-    And   I click the button ".search-button"
+     And  I set the element "input[name='search']" value to "plumbus"
+     And  I click the button ".search-button"
     Then  I expect the element "#results > .result-count" contains text "3 products found"
 ```
 
