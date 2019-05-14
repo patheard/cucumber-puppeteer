@@ -1,6 +1,6 @@
 {
   "name": "cucumber-puppeteer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Node.js template for end-to-end testing your app with Cucumber.js and Puppeteer",
   "main": "index.js",
   "files": [
