@@ -33,6 +33,9 @@ const config = {
   // Environment the tests are running in
   environment: process.env.ENV ? process.env.ENV : '',
 
+  // Path used to save generated test reports
+  reportPath: process.env.REPORT_PATH ? process.env.REPORT_PATH : './test/reports',
+
   // Root URL to prepend to URLs when using action/openUrl.js with a URL that doesn't include the http(s) protocol
   rootUrl: process.env.ROOT_URL ? process.env.ROOT_URL : '',
 
@@ -43,6 +46,7 @@ const config = {
 
 // Create required folders
 BeforeAll(async function(){
+  await createFolder(`${config.reportPath}`);
   await createFolder(`${config.screenshotPath}/compare`);
   await createFolder(`${config.screenshotPath}/diff`);
   await createFolder(`${config.screenshotPath}/error`);
