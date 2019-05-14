@@ -1,4 +1,5 @@
 const { Then } = require('cucumber');
+const checkAccessibility = require('../support/check/checkAccessibility');
 const checkAttribute = require('../support/check/checkAttribute');
 const checkContainsText = require('../support/check/checkContainsText');
 const checkElementEnabled = require('../support/check/checkElementEnabled');
@@ -109,4 +110,9 @@ Then(
     /^I expect the screenshot of "([^"]*)?" matches the web page?$/, async function(filename){
         await checkScreenshot.call(this, filename); 
     }    
+);
+
+Then(
+    'I expect the page has no accessibility errors',
+    checkAccessibility   
 );
