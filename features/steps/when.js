@@ -6,6 +6,7 @@ const waitFor = require('../support/action/waitFor');
 const deleteCookie = require('../support/action/deleteCookie');
 const resizeScreenSize = require('../support/action/resizeScreenSize')
 const scrollToElement = require('../support/action/scrollToElement');
+const setUserAgent = require('../support/action/setUserAgent');
 
 When(
     'I open the url {string-env}', 
@@ -24,12 +25,12 @@ When(
 );
 
 When(
-    'I wait for {float} seconds', 
+    'I wait for {float} second(s)', 
     waitFor
 );
 
 When(
-    'I wait for {int} seconds', 
+    'I wait for {int} second(s)', 
     waitFor
 );
 
@@ -46,4 +47,9 @@ When(
 When(
     'I scroll to the element {string}', 
     scrollToElement
+);
+
+When(
+    'I set the user agent to {string}', 
+    setUserAgent
 );

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>setUserAgent - Test</title>
+</head>
+<body>
+    <h1>setUserAgent</h1>
+    <div class="user-agent"></div>
+
+    <script>
+        setTimeout(function(){
+            document.querySelector('.user-agent').textContent = navigator.userAgent;
+        }, 1000);
+    </script>
+</body>
+</html>
