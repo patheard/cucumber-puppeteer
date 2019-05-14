@@ -29,6 +29,11 @@ When(
 );
 
 When(
+    'I wait for {int} seconds', 
+    waitFor
+);
+
+When(
     'I delete the cookie {string-env}', 
     deleteCookie
 );
