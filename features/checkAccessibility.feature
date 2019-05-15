@@ -5,7 +5,7 @@ Feature: checkAttribute
 
   Scenario: Check a page without accessibility errors
     When  I open the url "http://localhost:8080/checkAccessibilityPass.html"
-    Then  I expect the page has no accessibility errors
+    Then  I expect the "a11y-pass" page has no accessibility errors
 
   Scenario: Check a page with accessibility errors given
-    Given  the page has no accessibility errors           
+    Given  the "a11y-pass" page has no accessibility errors           

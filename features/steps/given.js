@@ -20,8 +20,7 @@ const checkUrlContains = require("../support/check/checkUrlContains");
 Given(
     'the url {string-env} is opened', async function(url) {
         await openUrl.call(this, url, null); 
-    } 
-    
+    }    
 );
 
 Given(
@@ -114,6 +113,6 @@ Given(
 );
 
 Given(
-    'the page has no accessibility errors',
+    'the {string} page has no accessibility errors',
     checkAccessibility   
 );
