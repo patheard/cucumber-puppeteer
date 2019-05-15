@@ -27,7 +27,7 @@ describe('clickElement', () => {
   });  
 
   it('clicks a link element to cause a page navigation', async () => {
-    await clickElement.call(browserScope, 'a.nav', 'h1');
+    await clickElement.call(browserScope, 'a.nav', '#cssClass');
     await checkUrl.call(browserScope, null, 'http://localhost:8080/checkAttribute.html');
   });
 
