@@ -10,3 +10,8 @@ Feature: openUrl
   Scenario: Open a URL in a when step using a root URL environment variable
     When  I open the url "/waitFor.html"
     Then  I expect the page url is "http://localhost:8080/waitFor.html"
+
+  Scenario: Set the user agent string
+    When  I open the url "http://localhost:8080/setUserAgent.html" with user agent "IE6"
+    And   I wait for 1 second
+    Then  I expect the element ".user-agent" contains text "IE6"     

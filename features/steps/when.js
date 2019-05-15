@@ -9,8 +9,16 @@ const scrollToElement = require('../support/action/scrollToElement');
 const setUserAgent = require('../support/action/setUserAgent');
 
 When(
-    'I open the url {string-env}', 
-    openUrl
+    'I open the url {string-env}', async function(url) {
+        await openUrl.call(this, url, null); 
+    } 
+    
+);
+
+When(
+    'I open the url {string-env} with user agent {string}', async function(url, userAgent) {
+        await openUrl.call(this, url, userAgent); 
+    } 
 );
 
 When(
