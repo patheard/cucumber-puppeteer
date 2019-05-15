@@ -1,18 +1,18 @@
 /**
  * Clicks on an item.
  * @param {String} selector CSS selector of the item to click.
- * @param {String} shouldWaitForNavigation If not null, the link click triggers a navigation that the 
+ * @param {String} waitForSelector If not null, the selector that should exist after the click.
  * test should allow to complete.
  */
-module.exports = async function(selector, shouldWaitForNavigation) {
-    // Element causes a navigation that we need to wait for (link click, form submit)
-    if(shouldWaitForNavigation){
+module.exports = async function(selector, waitForSelector) {
+    // Wait until the given selector exists
+    if(waitForSelector){
         await Promise.all([
-            this.page.waitForNavigation({waitUntil: 'domcontentloaded'}),
+            this.page.waitForSelector(waitForSelector),
             this.page.click(selector)
         ]);
 
-    // Element does not cause a navigation event
+    // Nothing to wait for, just click
     } else {               
         await this.page.click(selector);
     }

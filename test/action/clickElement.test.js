@@ -27,13 +27,13 @@ describe('clickElement', () => {
   });  
 
   it('clicks a link element to cause a page navigation', async () => {
-    await clickElement.call(browserScope, 'a.nav', 'causes nav');
+    await clickElement.call(browserScope, 'a.nav', 'h1');
     await checkUrl.call(browserScope, null, 'http://localhost:8080/checkAttribute.html');
   });
 
   it('clicks a submit button to submit a form', async () => {
     await openUrl.call(browserScope, testUrl);
-    await clickElement.call(browserScope, '[type="submit"]', 'causes nav');
+    await clickElement.call(browserScope, '[type="submit"]', '.wizard');
     await checkUrl.call(browserScope, null, 'http://localhost:8080/checkContainsText.html?listenhere=meow');
   });    
 
