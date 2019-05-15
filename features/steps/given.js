@@ -18,8 +18,16 @@ const checkTitleContains = require("../support/check/checkTitleContains");
 const checkUrlContains = require("../support/check/checkUrlContains");
 
 Given(
-    /^the url "([^"]*)?" is opened$/, 
-    openUrl
+    'the url {string-env} is opened', async function(url) {
+        await openUrl.call(this, url, null); 
+    } 
+    
+);
+
+Given(
+    'the url {string-env} with user agent {string} is opened', async function(url, userAgent) {
+        await openUrl.call(this, url, userAgent); 
+    } 
 );
 
 Given(

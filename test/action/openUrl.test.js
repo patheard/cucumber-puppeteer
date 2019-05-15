@@ -1,5 +1,7 @@
-const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
+const checkContainsText = require('../../features/support/check/checkContainsText');
+const openUrl = require('../../features/support/action/openUrl');
+const waitFor = require('../../features/support/action/waitFor');
 
 const browserScope = new BrowserScope();
 
@@ -32,6 +34,12 @@ describe('openUrl', () => {
     expect(browserScope.page).not.toBe(null);
     expect(response.status()).toBe(404);
     expect(response.url()).toBe('http://localhost:8080/does-not-exist.html');    
+  }); 
+  
+  it('opens a valid URL with a user agent', async () => {    
+    await openUrl.call(browserScope, 'http://localhost:8080/setUserAgent.html', 'Mobile Safari');
+    await waitFor.call(browserScope, 1);
+    await checkContainsText.call(browserScope, '.user-agent', null, 'Mobile Safari');
   });  
 
 }); 
