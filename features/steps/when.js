@@ -14,9 +14,15 @@ When(
 );
 
 When(
-    // Used RegEx since cucumber expressions do not have a good way to do optional capturing groups that return their value
-    /^I click the (?:element|button|link) "([^"]*)?"( and wait for the page to load)?$/, 
-    clickElement
+    'I click the element/button/link {string}', async function(selector) {
+        await clickElement.call(this, selector,  null); 
+    }
+);
+
+When(
+    'I click the element/button/link {string} and wait for the element {string}', async function(selector, waitForSelector) {
+        await clickElement.call(this, selector,  waitForSelector); 
+    }
 );
 
 When(
