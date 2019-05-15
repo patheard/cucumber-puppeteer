@@ -113,6 +113,6 @@ Then(
 );
 
 Then(
-    'I expect the page has no accessibility errors',
+    'I expect the {string} page has no accessibility errors',
     checkAccessibility   
 );

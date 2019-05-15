@@ -15,12 +15,12 @@ describe('checkAccessibility', () => {
 
   it('finds no accessibility errors with a clean page', async () => {  
     await openUrl.call(browserScope, 'http://localhost:8080/checkAccessibilityPass.html');
-    await checkAccessibility.call(browserScope);
+    await checkAccessibility.call(browserScope, "testing-pass");
   });
 
   it('finds accessibility errors with a dirty page', async () => {
     await openUrl.call(browserScope, 'http://localhost:8080/checkAccessibilityFail.html');  
-    await expect(checkAccessibility.call(browserScope)).rejects.toThrow('Expected no accessibility errors, but found the following in ./test/reports/checkAccessibilityFailTest.csv');
+    await expect(checkAccessibility.call(browserScope, "testing-fail")).rejects.toThrow('Expected no accessibility errors, but found the following in ./test/reports/testing-fail.csv');
   }); 
 
 }); 
