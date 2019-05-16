@@ -1,18 +1,18 @@
 const { When } = require('cucumber');
 const clickElement = require('../support/action/clickElement');
-const openUrl = require('../support/action/openUrl');
-const setElementValue = require('../support/action/setElementValue');
-const waitFor = require('../support/action/waitFor');
 const deleteCookie = require('../support/action/deleteCookie');
+const keyboardPress = require('../support/action/keyboardPress');
+const openUrl = require('../support/action/openUrl');
 const resizeScreenSize = require('../support/action/resizeScreenSize')
-const scrollToElement = require('../support/action/scrollToElement');
+const setElementValue = require('../support/action/setElementValue');
 const setUserAgent = require('../support/action/setUserAgent');
+const scrollToElement = require('../support/action/scrollToElement');
+const waitFor = require('../support/action/waitFor');
 
 When(
     'I open the url {string-env}', async function(url) {
         await openUrl.call(this, url, null); 
-    } 
-    
+    }    
 );
 
 When(
@@ -67,3 +67,8 @@ When(
     'I set the user agent to {string}', 
     setUserAgent
 );
+
+When (
+    'I press the {string} key', 
+    keyboardPress
+)
