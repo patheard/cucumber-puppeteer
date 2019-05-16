@@ -1,6 +1,7 @@
 const { When } = require('cucumber');
 const clickElement = require('../support/action/clickElement');
 const deleteCookie = require('../support/action/deleteCookie');
+const fileUpload = require('../support/action/fileUpload');
 const keyboardPress = require('../support/action/keyboardPress');
 const openUrl = require('../support/action/openUrl');
 const resizeScreenSize = require('../support/action/resizeScreenSize')
@@ -71,4 +72,9 @@ When(
 When (
     'I press the {string} key', 
     keyboardPress
+)
+
+When (
+    'I set the file element {string} value to {string-env}', 
+    fileUpload
 )
