@@ -1,4 +1,5 @@
 const checkContainsText = require('../../features/support/check/checkContainsText');
+const checkHasFocus = require('../../features/support/check/checkHasFocus');
 const keyboardPress = require('../../features/support/action/keyboardPress');
 const openUrl = require('../../features/support/action/openUrl');
 const BrowserScope = require('../../features/support/scope/BrowserScope');
@@ -21,5 +22,11 @@ describe('keyboardPress', () => {
     await keyboardPress.call(browserScope, 'Enter');
     await checkContainsText.call(browserScope, '.message', null, 'Great success!');
   });
+
+  it('presses a key and focuses the element', async () => {
+    await checkHasFocus.call(browserScope, 'input[type="text"]', 'not');
+    await keyboardPress.call(browserScope, 'Enter', 'input[type="text"]');
+    await checkHasFocus.call(browserScope, 'input[type="text"]');
+  });  
 
 });

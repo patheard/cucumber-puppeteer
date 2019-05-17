@@ -70,8 +70,15 @@ When(
 );
 
 When (
-    'I press the {string} key', 
-    keyboardPress
+    'I press the {string} key', async function(key) {
+        await keyboardPress.call(this, key,  null); 
+    }     
+)
+
+When (
+    'I press the {string} key on the {string} element', async function(key, selector) {
+        await keyboardPress.call(this, key,  selector); 
+    }     
 )
 
 When (
