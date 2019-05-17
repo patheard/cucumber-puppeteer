@@ -6,11 +6,12 @@
 </head>
 <body>
     <h1>setUserAgent</h1>
-    <div class="user-agent"></div>
+    <div class="user-agent" style="display: none;"></div>
 
     <script>
         setTimeout(function(){
             document.querySelector('.user-agent').textContent = navigator.userAgent;
+            document.querySelector('.user-agent').style.display = 'block';
         }, 1000);
     </script>
 </body>
