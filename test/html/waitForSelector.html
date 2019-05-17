@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>waitForSelector - Test</title>
+</head>
+<body>
+    <h1>waitForSelector</h1>
+
+    <div class="parent"></div>
+
+    <script>
+        setTimeout(function(){
+            var delayed = document.createElement('div');
+            delayed.classList.add('delayed');
+            delayed.textContent = 'mellow';
+            
+            document.querySelector('.parent').appendChild(delayed);
+        }, 1000);
+    </script>
+</body>
+</html>
