@@ -32,7 +32,7 @@
     "cucumber": "^5.1.0",
     "dotenv": "^8.0.0",
     "pixelmatch": "^4.0.2",
-    "puppeteer": "^1.14.0"
+    "puppeteer": "^1.16.0"
   },
   "devDependencies": {
     "codecov": "^3.3.0",
