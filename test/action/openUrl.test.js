@@ -1,7 +1,7 @@
 const BrowserScope = require('../../features/support/scope/BrowserScope');
 const checkContainsText = require('../../features/support/check/checkContainsText');
 const openUrl = require('../../features/support/action/openUrl');
-const waitFor = require('../../features/support/action/waitFor');
+const waitForSelector = require('../../features/support/action/waitForSelector');
 
 const browserScope = new BrowserScope();
 
@@ -38,7 +38,7 @@ describe('openUrl', () => {
   
   it('opens a valid URL with a user agent', async () => {    
     await openUrl.call(browserScope, 'http://localhost:8080/setUserAgent.html', 'Mobile Safari');
-    await waitFor.call(browserScope, 1);
+    await waitForSelector.call(browserScope, '.user-agent');
     await checkContainsText.call(browserScope, '.user-agent', null, 'Mobile Safari');
   });  
 

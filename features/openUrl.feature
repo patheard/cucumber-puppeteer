@@ -13,5 +13,5 @@ Feature: openUrl
 
   Scenario: Set the user agent string
     When  I open the url "http://localhost:8080/setUserAgent.html" with user agent "IE6"
-    And   I wait for 1 second
+    And   I wait for element ".user-agent"
     Then  I expect the element ".user-agent" contains text "IE6"     
