@@ -12,5 +12,5 @@ module.exports = async function (selector, not, expectedText) {
     const containsText = elementText && elementText.includes(expectedText);
     const shouldContainText = not ? false : true;
 
-    assert.strictEqual(containsText, shouldContainText, `Expected "${selector}" to ${shouldContainText ? 'contain' : 'not contain'} "${expectedText}"`);
+    assert.strictEqual(containsText, shouldContainText, `Expected "${selector}" to ${shouldContainText ? 'contain' : 'not contain'} "${expectedText}" but had "${elementText}" instead`);
 }
