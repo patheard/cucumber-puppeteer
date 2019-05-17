@@ -48,12 +48,4 @@ describe('setElementValue', () => {
     await expect(setElementValue.call(browserScope, 'input[readonly]', 'plumbus')).rejects.toThrow('Error: unable to set "input[readonly]" value to "plumbus"');
   });    
 
-  it('fails if the element does not have a value to set', async () => {
-    await expect(setElementValue.call(browserScope, 'h1', 'foobar')).rejects.toThrow('Error: unable to set "h1" value to "foobar"');
-  });  
-
-  it('fails if the element does not exist', async () => {
-    await expect(setElementValue.call(browserScope, '.bueller')).rejects.toThrow('Error: failed to find element matching selector ".bueller"');
-  });  
-
 }); 
