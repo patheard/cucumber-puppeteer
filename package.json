@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "npx cucumber-js --format ./features/support/util/PrettyFormatter",
-    "test": "jest --verbose",
+    "test": "jest --verbose --runInBand",
     "test-server": "http-server -p 8080 ./test/html",
     "test-coverage": "codecov"
   },
