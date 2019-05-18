@@ -5,6 +5,7 @@ const fileUpload = require('../support/action/fileUpload');
 const keyboardPress = require('../support/action/keyboardPress');
 const openUrl = require('../support/action/openUrl');
 const resizeScreenSize = require('../support/action/resizeScreenSize')
+const setElementStyle = require('../support/action/setElementStyle');
 const setElementValue = require('../support/action/setElementValue');
 const setUserAgent = require('../support/action/setUserAgent');
 const scrollToElement = require('../support/action/scrollToElement');
@@ -103,4 +104,9 @@ When (
 When (
     'I set the file element {string} value to {string-env}', 
     fileUpload
+)
+
+When (
+    'I set the element {string} style {string} to {string}', 
+    setElementStyle
 )
