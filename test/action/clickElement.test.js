@@ -38,7 +38,7 @@ describe('clickElement', () => {
   });    
 
   it('fails if the element does not exist', async () => {
-    await expect(clickElement.call(browserScope, '.bueller')).rejects.toThrow("No node found for selector: .bueller");
+    await expect(clickElement.call(browserScope, '.bueller')).rejects.toThrow('Error: failed to find element matching selector ".bueller"');
   });  
 
 }); 
