@@ -14,4 +14,9 @@ Feature: openUrl
   Scenario: Set the user agent string
     When  I open the url "http://localhost:8080/setUserAgent.html" with user agent "IE6"
     And   I wait for element ".user-agent"
-    Then  I expect the element ".user-agent" contains text "IE6"     
+    Then  I expect the element ".user-agent" contains text "IE6"    
+
+  Scenario: Emulate a device
+    When  I open the url "http://localhost:8080/setUserAgent.html" with device "iPhone X"
+    And   I wait for element ".user-agent"
+    Then  I expect the element ".user-agent" contains text "iPhone OS 11_0"        

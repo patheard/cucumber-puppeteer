@@ -14,13 +14,19 @@ const waitForSelector = require('../support/action/waitForSelector');
 
 When(
     'I open the url {string-env}', async function(url) {
-        await openUrl.call(this, url, null); 
+        await openUrl.call(this, url); 
     }    
 );
 
 When(
     'I open the url {string-env} with user agent {string}', async function(url, userAgent) {
         await openUrl.call(this, url, userAgent); 
+    } 
+);
+
+When(
+    'I open the url {string-env} with device {string}', async function(url, device) {
+        await openUrl.call(this, url, null, device); 
     } 
 );
 

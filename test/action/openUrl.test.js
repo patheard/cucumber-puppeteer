@@ -40,6 +40,16 @@ describe('openUrl', () => {
     await openUrl.call(browserScope, 'http://localhost:8080/setUserAgent.html', 'Mobile Safari');
     await waitForSelector.call(browserScope, '.user-agent');
     await checkContainsText.call(browserScope, '.user-agent', null, 'Mobile Safari');
-  });  
+  });
+  
+  it('opens a valid URL emulating a device', async () => {    
+    await openUrl.call(browserScope, 'http://localhost:8080/setUserAgent.html', null, 'Blackberry PlayBook');
+    await waitForSelector.call(browserScope, '.user-agent');
+    await checkContainsText.call(browserScope, '.user-agent', null, 'PlayBook; U; RIM Tablet OS 2.1.0; en-US');
+  }); 
+  
+  it('does not open a URL if the device string is bad', async () => {    
+    await expect(openUrl.call(browserScope, 'http://localhost:8080/setUserAgent.html', null, 'Pickle')).rejects.toThrow('Error: could not find a device to emulate for "Pickle"');
+  });   
 
 }); 
