@@ -10,7 +10,9 @@
     "start": "npx cucumber-js --format ./features/support/util/PrettyFormatter",
     "test": "jest --verbose --runInBand",
     "test-server": "http-server -p 8080 ./test/html",
-    "test-coverage": "codecov"
+    "test-coverage": "codecov",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,8 @@
     "cucumber": "^5.1.0",
     "dotenv": "^8.0.0",
     "pixelmatch": "^5.0.0",
-    "puppeteer": "^1.16.0"
+    "puppeteer": "^1.16.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "codecov": "^3.3.0",
@@ -45,5 +48,6 @@
     "setupFilesAfterEnv": [
       "./test/jest.setup.js"
     ]
-  }
+  },
+  "snyk": true
 }
