@@ -36,7 +36,7 @@
     "dotenv": "^8.0.0",
     "pixelmatch": "^5.0.0",
     "puppeteer": "^1.16.0",
-    "snyk": "^1.192.3"
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "codecov": "^3.3.0",
