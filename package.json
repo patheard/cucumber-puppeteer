@@ -12,6 +12,7 @@
     "test-server": "http-server -p 8080 ./test/html",
     "test-coverage": "codecov",
     "snyk-protect": "snyk protect",
+    "snyk-test": "snyk auth $SNYK_TOKEN && snyk test",
     "prepare": "npm run snyk-protect"
   },
   "repository": {
