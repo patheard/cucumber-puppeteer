@@ -38,7 +38,8 @@ And  I set the element "[type='password']" value to "$TEST_PASSWORD"
 
 # Puppeteer launch options
 You can customize [Puppeteer's launch options](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions) by adding a `puppeteerOptions` object to your package.json:
-```json
+```javascript
+// package.json
 "puppeteerOptions" : {
     "headless": false,
     "sloMo": 250,
@@ -49,6 +50,16 @@ You can customize [Puppeteer's launch options](https://github.com/GoogleChrome/p
 }
 
 ```
+Or by using the Cucumber.js [`--world-parameters`](https://github.com/cucumber/cucumber-js/blob/master/docs/cli.md#world-parameters) command line arg:
+
+```javascript
+// package.json
+"scripts": {
+    "test:headful": "npx cucumber-js --world-parameters \"{\\\"headless\\\": false}\""
+}
+```
+
+:warning: Note that `--world-parameters` will take precedence.
 
 # Use in your project
 To use this in your own project as a dependency, check out the [test-cuke](https://github.com/patheard/test-cuke) example.
