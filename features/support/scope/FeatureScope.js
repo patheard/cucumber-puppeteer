@@ -17,12 +17,15 @@ class FeatureScope {
     async init(currentFeature){
         this.feature = currentFeature;
         
-        if(this.browserScope){
+        // Preserve world parameters that may have been passed on the intial launch
+        let worldParameters = {};
+        if(this.browserScope){            
             await this.browserScope.close();
+            worldParameters = this.browserScope.worldParameters;
             this.browserScope = null;
         }
         
-        this.browserScope = new BrowserScope();
+        this.browserScope = new BrowserScope({parameters: worldParameters});
         await this.browserScope.init();
     }
 }

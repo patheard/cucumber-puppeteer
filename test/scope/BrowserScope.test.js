@@ -9,14 +9,16 @@ describe('BrowserScope', () => {
     expect(browserScope.page).toBe(null);
     expect(browserScope.browser).toBe(null);
     expect(browserScope.config).toBe(null);
+    expect(browserScope.worldParameters).toEqual({});
   });
 
   it('can be initialized', async () => {
-    browserScope = new BrowserScope();
+    browserScope = new BrowserScope({parameters: {headless: true}});
     await browserScope.init();    
     expect(browserScope.page).toBe(null);
     expect(browserScope.config).not.toBe(null);
     expect(browserScope.browser).not.toBe(null);
+    expect(browserScope.worldParameters).toEqual({headless: true});
 
     const browserVersion = await browserScope.browser.version();
     expect(browserVersion).toContain('Chrome');

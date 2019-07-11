@@ -5,10 +5,11 @@ const puppeteerOptions = require('../../../package.json').puppeteerOptions;
  * Manage the Puppeteer browser and page objects.
  */
 class BrowserScope {
-    constructor(){
+    constructor(args){
         this.browser = null;
         this.config = null;
         this.page = null;
+        this.worldParameters = args && args.parameters ? args.parameters : {};
     }
 
     async init(){
@@ -20,7 +21,7 @@ class BrowserScope {
 
         this.page = null;
         this.config = {};
-        this.browser = await puppeteer.launch({...defaultOptions, ...puppeteerOptions});
+        this.browser = await puppeteer.launch({...defaultOptions, ...puppeteerOptions, ...this.worldParameters});
     }
 
     async close(){
