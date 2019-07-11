@@ -28,6 +28,14 @@ describe('FeatureScope', () => {
     expect(featureScope.browserScope).not.toBe(null);
   });
 
+  it('preserves --world-parameters across inits', async () => {
+    await featureScope.init('mmmuffins');
+    featureScope.browserScope.worldParameters = {hello: 'thar'};
+
+    await featureScope.init('mmmuffins');
+    expect(featureScope.browserScope.worldParameters).toEqual({hello: 'thar'});
+  });  
+
   it('can identify new features', async () => {    
     expect(featureScope.isNewFeature('mmmuffins')).toBe(false);
     expect(featureScope.isNewFeature('pants')).toBe(true);
