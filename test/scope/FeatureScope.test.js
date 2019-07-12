@@ -20,6 +20,7 @@ describe('FeatureScope', () => {
 
     expect(featureScope.feature).toBe('mmmuffins');
     expect(featureScope.browserScope).not.toBe(null);
+    expect(featureScope.browserScope.worldParameters).toEqual({});
   });
   
   it('can close an existing browser scope object', async () => {
@@ -28,11 +29,8 @@ describe('FeatureScope', () => {
     expect(featureScope.browserScope).not.toBe(null);
   });
 
-  it('preserves --world-parameters across inits', async () => {
-    await featureScope.init('mmmuffins');
-    featureScope.browserScope.worldParameters = {hello: 'thar'};
-
-    await featureScope.init('mmmuffins');
+  it('sets worldParameters on the BrowserScope if they are passed', async () => {
+    await featureScope.init('mmmuffins', {hello: 'thar'});
     expect(featureScope.browserScope.worldParameters).toEqual({hello: 'thar'});
   });  
 

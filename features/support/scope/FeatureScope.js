@@ -10,18 +10,24 @@ class FeatureScope {
         this.feature = null;
     }
 
+    /**
+     * Checks if a new feature is being run.
+     * @param {String} currentFeature Name of the feature being run.
+     */
     isNewFeature(currentFeature){
         return this.feature !== currentFeature;
     }
 
-    async init(currentFeature){
+    /**
+     * Initializes the scope for the current feature file.
+     * @param {String} currentFeature Name of the feature being run.
+     * @param {Object} worldParameters Parameters passed to the world constructor by Cucumber.js' --world-parameters CLI arg.
+     */
+    async init(currentFeature, worldParameters){
         this.feature = currentFeature;
         
-        // Preserve world parameters that may have been passed on the intial launch
-        let worldParameters = {};
         if(this.browserScope){            
             await this.browserScope.close();
-            worldParameters = this.browserScope.worldParameters;
             this.browserScope = null;
         }
         
