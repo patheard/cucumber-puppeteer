@@ -60,7 +60,7 @@ Before(async function(scenario) {
   // Check if the current scenario is in the same feature test
   const currentFeature = scenario.sourceLocation.uri;
   if(featureScope.isNewFeature(currentFeature))
-    await featureScope.init(currentFeature);
+    await featureScope.init(currentFeature, this.worldParameters);
   
   this.page = featureScope.browserScope.page;
   this.browser = featureScope.browserScope.browser;
