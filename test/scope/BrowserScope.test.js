@@ -15,7 +15,7 @@ describe('BrowserScope', () => {
   it('can be initialized', async () => {
     browserScope = new BrowserScope({parameters: {headless: true}});
     await browserScope.init();    
-    expect(browserScope.page).toBe(null);
+    expect(browserScope.page).not.toBe(null);
     expect(browserScope.config).not.toBe(null);
     expect(browserScope.browser).not.toBe(null);
     expect(browserScope.worldParameters).toEqual({headless: true});

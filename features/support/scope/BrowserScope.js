@@ -19,9 +19,9 @@ class BrowserScope {
         }
         this.close();
 
-        this.page = null;
         this.config = {};
         this.browser = await puppeteer.launch({...defaultOptions, ...puppeteerOptions, ...this.worldParameters});
+        this.page = await this.browser.newPage();
     }
 
     async close(){
