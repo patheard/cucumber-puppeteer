@@ -11,8 +11,6 @@ const puppeteer = require('puppeteer');
 module.exports = async function(url, userAgent, device) {
     const fullUrl = url.match(/^http.*$/i) ? url : this.config.rootUrl + url;
 
-    this.page = await this.browser.newPage();
-
     // Set the user agent if it exists
     if(userAgent){
         await this.page.setUserAgent(userAgent);
