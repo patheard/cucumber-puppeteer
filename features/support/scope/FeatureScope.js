@@ -8,6 +8,8 @@ class FeatureScope {
     constructor(){
         this.browserScope = null;
         this.feature = null;
+        this.coverageJs = null;
+        this.coverageCss = null;
     }
 
     /**
@@ -26,13 +28,31 @@ class FeatureScope {
     async init(currentFeature, worldParameters){
         this.feature = currentFeature;
         
-        if(this.browserScope){            
+        if(this.browserScope){
             await this.browserScope.close();
             this.browserScope = null;
         }
         
         this.browserScope = new BrowserScope({parameters: worldParameters});
         await this.browserScope.init();
+    }
+
+    async coverageStart(){
+        if(this.browserScope && this.browserScope.page){
+            await Promise.all([
+                this.browserScope.page.coverage.startJSCoverage(),
+                this.browserScope.page.coverage.startCSSCoverage()
+            ]);
+        }
+    }
+
+    async coverageStop(){
+        if(this.browserScope && this.browserScope.page){
+            [this.coverageJs, this.coverageCss] = await Promise.all([
+                this.browserScope.page.coverage.stopJSCoverage(),
+                this.browserScope.page.coverage.stopCSSCoverage(),
+            ]);        
+        }
     }
 }
 
