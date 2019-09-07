@@ -28,10 +28,20 @@ class PrettyFormatter extends SummaryFormatter {
   }
 
   logTestStep({testCase, index, result}) {
-    const {gherkinKeyword, pickleStep} = this.eventDataCollector.getTestStepData({testCase, index});
+    const {gherkinKeyword, pickleStep, testStep} = this.eventDataCollector.getTestStepData({testCase, index});
     const {status} = result;
+
+    // Log the step
     if (pickleStep) {
-      this.log(`   ${this.colorFns[status](STATUS_CHARACTER_MAPPING[status])} ${gherkinKeyword}${pickleStep.text}\n`);
+      this.log(`   ${this.colorFns[status](STATUS_CHARACTER_MAPPING[status])} ${gherkinKeyword}${pickleStep.text}\n`);      
+    }
+
+    // Log attachments for the test step
+    if(testStep && testStep.attachments){
+      for(const attachment of testStep.attachments){
+        const type = attachment.media.type;
+        this.log(`     ${this.colorFns['location'](`Attachment (${type})${type === 'text/plain' ? ': ' + attachment.data : ''}`)}\n`);
+      }
     }
   }
 
