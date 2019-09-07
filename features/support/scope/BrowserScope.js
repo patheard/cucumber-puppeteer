@@ -10,6 +10,7 @@ class BrowserScope {
         this.config = null;
         this.page = null;
         this.worldParameters = args && args.parameters ? args.parameters : {};
+        this.attach = args && args.attach ? args.attach : null;
     }
 
     async init(){
