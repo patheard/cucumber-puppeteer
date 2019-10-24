@@ -35,7 +35,7 @@
     "cucumber": "^5.1.0",
     "dotenv": "^8.0.0",
     "pixelmatch": "^5.0.0",
-    "puppeteer": "^1.16.0",
+    "puppeteer": "^2.0.0",
     "snyk": "^1.230.5"
   },
   "devDependencies": {
