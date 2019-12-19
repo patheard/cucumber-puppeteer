@@ -7,7 +7,7 @@
     "/features"
   ],
   "scripts": {
-    "start": "npx cucumber-js --format ./features/support/util/PrettyFormatter",
+    "start": "npx cucumber-js --format progress",
     "test": "jest --verbose --runInBand",
     "test-server": "http-server -p 8080 ./test/html",
     "test-coverage": "codecov",
@@ -32,11 +32,11 @@
   "dependencies": {
     "axe-puppeteer": "^1.0.0",
     "axe-reports": "^1.1.11",
-    "cucumber": "^5.1.0",
+    "cucumber": "^6.0.5",
     "dotenv": "^8.0.0",
     "pixelmatch": "^5.0.0",
     "puppeteer": "^2.0.0",
-    "snyk": "^1.258.2"
+    "snyk": "^1.262.2"
   },
   "devDependencies": {
     "codecov": "^3.3.0",
