@@ -53,20 +53,9 @@ When(
 );
 
 When(
-    'I wait for {int} second(s)', 
-    waitFor
-);
-
-When(
     'I wait for element {string}', async function(selector) {
         await waitForSelector.call(this, selector, null); 
     }
-);
-
-When(
-    'I wait for element {string} for {int} seconds', async function(selector, seconds) {
-        await waitForSelector.call(this, selector, seconds); 
-    } 
 );
 
 When(
