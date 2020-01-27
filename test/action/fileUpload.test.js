@@ -1,6 +1,5 @@
 const BrowserScope = require('../../features/support/scope/BrowserScope');
-const checkContainsText = require('../../features/support/check/checkContainsText');
-const checkElementVisible = require('../../features/support/check/checkElementVisible');
+const checkElementValue = require('../../features/support/check/checkElementValue');
 const fileUpload = require('../../features/support/action/fileUpload');
 const openUrl = require('../../features/support/action/openUrl');
 
@@ -19,8 +18,7 @@ describe('fileUpload', () => {
 
   it('sets the value of a file input element', async () => {    
     await fileUpload.call(browserScope, 'input[type="file"]', './test/screenshots/ref/ccc-landing.png');
-    await checkElementVisible.call(browserScope, '.file-name', null, '5');
-    await checkContainsText.call(browserScope, '.file-name', null, 'ccc-landing.png');
+    await checkElementValue.call(browserScope, 'input[type="file"]', null, 'C:\\fakepath\\ccc-landing.png');
   }); 
   
   it('fails if the file input element does not exist', async () => {    

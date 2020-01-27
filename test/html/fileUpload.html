@@ -8,17 +8,6 @@
     <main>
         <h1>fileUpload</h1>
         <input type="file" name="upload">
-
-        <div class="file-name" style="display: none"></div>
     </main>
-
-    <script>
-        var fileInput = document.querySelector('input[type="file"]');
-        var fileName = document.querySelector('.file-name');
-        fileInput.addEventListener('change', function(){
-            fileName.textContent = fileInput.files[0].name;
-            fileName.style.display = 'block';
-        });
-    </script>
 </body>
 </html>
