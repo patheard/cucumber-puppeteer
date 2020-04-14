@@ -12,6 +12,12 @@ ignore:
     - snyk > @snyk/update-notifier > latest-version > package-json > registry-url > rc > minimist:
         reason: None given
         expires: '2020-04-11T17:57:43.524Z'
+    - snyk > @snyk/update-notifier > latest-version > package-json > registry-auth-token > rc > minimist:
+        reason: None given
+        expires: '2020-05-14T14:58:37.329Z'
+    - snyk > @snyk/update-notifier > latest-version > package-json > registry-url > rc > minimist:
+        reason: None given
+        expires: '2020-05-14T14:58:37.330Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
