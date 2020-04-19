@@ -34,7 +34,7 @@
     "axe-reports": "^1.1.11",
     "cucumber": "^6.0.5",
     "dotenv": "^8.2.0",
-    "pixelmatch": "^5.1.0",
+    "pixelmatch": "^5.2.0",
     "puppeteer": "^3.0.0",
     "snyk": "^1.305.1"
   },
