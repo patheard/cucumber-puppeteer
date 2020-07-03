@@ -54,20 +54,12 @@ patch:
   SNYK-JS-LODASH-567746:
     - cucumber > lodash:
         patched: '2020-04-30T13:01:38.249Z'
-      snyk > @snyk/ruby-semver > lodash:
-        patched: '2020-04-30T13:48:51.823Z'
     - dotnet-deps-parser > lodash:
         patched: '2020-04-30T13:01:38.249Z'
-      snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > lodash:
-        patched: '2020-04-30T13:48:51.823Z'
     - inquirer > lodash:
         patched: '2020-04-30T13:01:38.249Z'
-      snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
-        patched: '2020-04-30T13:48:51.823Z'
     - snyk > lodash:
         patched: '2020-04-30T13:01:38.249Z'
-      snyk > graphlib > lodash:
-        patched: '2020-04-30T13:48:51.823Z'
     - '@snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash':
         patched: '2020-04-30T13:01:38.249Z'
     - '@snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash':
@@ -118,3 +110,11 @@ patch:
         patched: '2020-04-30T13:01:38.249Z'
     - '@snyk/composer-lockfile-parser > lodash':
         patched: '2020-04-30T13:01:38.249Z'
+    - snyk > @snyk/ruby-semver > lodash:
+        patched: '2020-04-30T13:48:51.823Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > lodash:
+        patched: '2020-04-30T13:48:51.823Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
+        patched: '2020-04-30T13:48:51.823Z'
+    - snyk > graphlib > lodash:
+        patched: '2020-04-30T13:48:51.823Z'
