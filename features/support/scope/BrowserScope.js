@@ -20,15 +20,24 @@ class BrowserScope {
         }
         this.close();
 
-        this.config = {};
-        this.browser = await puppeteer.launch({...defaultOptions, ...puppeteerOptions, ...this.worldParameters});
+        this.config = {...defaultOptions, ...puppeteerOptions, ...this.worldParameters};
+        if('browserWSEndpoint' in this.config) {
+            this.browser = await puppeteer.connect(this.config);
+        } else {
+            this.browser = await puppeteer.launch(this.config);
+        }
         this.page = await this.browser.newPage();
     }
 
     async close(){
-        if(this.browser)
-            await this.browser.close();
-        
+        if(this.browser) {
+            if('browserWSEndpoint' in this.config) {
+                await this.browser.disconnect();
+            } else {
+                await this.browser.close();
+            }
+        }
+
         this.browser = null;
         this.config = null;
         this.page = null;
