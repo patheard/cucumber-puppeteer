@@ -18,6 +18,14 @@ ignore:
     - snyk > @snyk/update-notifier > latest-version > package-json > registry-url > rc > minimist:
         reason: None given
         expires: '2020-05-14T14:58:37.330Z'
+  SNYK-JS-LODASH-590103:
+    - cucumber > lodash:
+        reason: None given
+        expires: '2020-09-28T14:43:16.269Z'
+  SNYK-JS-BL-608877:
+    - puppeteer > tar-fs > tar-stream > bl:
+        reason: None given
+        expires: '2020-09-28T14:43:16.269Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
