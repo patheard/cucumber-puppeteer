@@ -41,7 +41,7 @@
     "codecov": "^3.3.0",
     "http-server": "^0.12.3",
     "jest": "^24.7.1",
-    "snyk": "^1.316.2"
+    "snyk": "^1.386.0"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
