@@ -21,7 +21,7 @@ ignore:
   SNYK-JS-LODASH-590103:
     - cucumber > lodash:
         reason: None given
-        expires: '2020-09-28T14:43:16.269Z'
+        expires: '2020-11-05T01:47:05.958Z'
   SNYK-JS-BL-608877:
     - puppeteer > tar-fs > tar-stream > bl:
         reason: None given
