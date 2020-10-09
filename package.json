@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/patheard/cucumber-puppeteer#readme",
   "dependencies": {
-    "axe-puppeteer": "^1.1.0",
+    "axe-puppeteer": "^1.1.1",
     "axe-reports": "^1.1.11",
     "cucumber": "^6.0.5",
     "dotenv": "^8.2.0",
