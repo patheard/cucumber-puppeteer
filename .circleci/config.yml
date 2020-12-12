@@ -41,19 +41,21 @@ jobs:
             npm run test-server &
             wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null # Wait until the website is up before continuing
             ENV=circleci npm start
+      - store_artifacts:
+          path: ./test/screenshots
 
   # Security audits with Snyk.  Relies on SNYK_TOKEN environment variable.
   security_test:
     <<: *container_config
     steps:
       - *attach_workspace
-      - run: npm run snyk-test  
+      - run: npm run snyk-test
 
   # Unit tests using JEST
   unit_test:
     <<: *container_config
     steps:
-      - *attach_workspace 
+      - *attach_workspace
       - run:
           command: |
             npm run test-server &
