@@ -11,7 +11,7 @@ module.exports = async function(selector) {
         //Scroll desired element into view and wait a second for the scroll to complete
         /* istanbul ignore next */  // Required otherwise code coverage evaluation fails within $eval calls
         await this.page.$eval(selector, el => el.scrollIntoView());
-        await this.page.waitFor(1000);
+        await this.page.waitForTimeout(1000);
 
     } catch (error) {
         failed = error;
