@@ -26,36 +26,36 @@ afterAll(async () => {
   deleteFile(`${browserScope.config.screenshotPath}/compare/missing${environment}.png`);
   deleteFile(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`);
 
-  await browserScope.close();  
+  await browserScope.close();
 });
 
 describe('checkScreenshot', () => {
 
-  it('finds matching screenshots', async () => {   
+  it('finds matching screenshots', async () => {
     await checkScreenshot.call(browserScope, 'ccc-landing');
   });
 
-  it('finds matching screenshots by setting a custom root dir', async () => {   
+  it('finds matching screenshots by setting a custom root dir', async () => {
     await checkScreenshot.call(browserScope, 'ccc-landing', './test/screenshots');
-  });  
-  
-  it('fails if the screenshot does not exist', async () => { 
+  });
+
+  it('fails if the screenshot does not exist', async () => {
     const environment = getEnvironmentToken(browserScope.config.environment);
-    expect(await pathExists(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`)).toBe(false);    
+    expect(await pathExists(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`)).toBe(false);
     await expect(checkScreenshot.call(browserScope, 'missing')).rejects.toThrow('Expected reference screenshot to exist');
   });
 
   it('creates a new reference screenshot if the screenshot did not exist', async () => {
     const environment = getEnvironmentToken(browserScope.config.environment);
     expect(await pathExists(`${browserScope.config.screenshotPath}/ref/missing${environment}.png`)).toBe(true);
-  });  
-
-  it('fails if the screenshot does not match', async () => {    
-    await expect(checkScreenshot.call(browserScope, 'ccc-landing-mismatch')).rejects.toThrow('Expected screenshots to match.');
   });
 
-  it('fails if the screenshots are not the same size', async () => {    
-    await expect(checkScreenshot.call(browserScope, 'ccc-landing-wrong-size')).rejects.toThrow('Expected screenshot widths to match.');
-  }); 
+  it('fails if the screenshot does not match', async () => {
+    await expect(checkScreenshot.call(browserScope, 'ccc-landing-mismatch')).rejects.toThrow('Expected screenshot heights to match.');
+  });
 
-}); 
+  it('fails if the screenshots are not the same size', async () => {
+    await expect(checkScreenshot.call(browserScope, 'ccc-landing-wrong-size')).rejects.toThrow('Expected screenshot widths to match.');
+  });
+
+});
