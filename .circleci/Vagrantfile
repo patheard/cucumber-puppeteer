@@ -8,27 +8,27 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/vagrant", type: "smb", mount_options: ["vers=2.1"]
 
   config.vm.provider "virtualbox" do |vb|
-	vb.name = "docker-vm"
+    vb.name = "docker-vm"
     vb.memory = 4096
     vb.cpus = 1
   end
 
   config.vm.provision "shell", inline: <<-SHELL
     echo "\n----- Upgrade OS and cleanup ------\n"
-	apt-get update
-	apt-get -y dist-upgrade
-	apt-get -y install --install-recommends linux-generic-lts-xenial
-	apt-get -y autoremove
+    apt-get update
+    apt-get -y dist-upgrade
+    apt-get -y install --install-recommends linux-generic-lts-xenial
+    apt-get -y autoremove
 	
     echo "\n----- Install Docker ------\n"
     wget -qO- https://get.docker.com/ | sh
-	usermod -aG docker vagrant
+    usermod -aG docker vagrant
 
-	echo "\n----- Install git, node, npm ------\n"
-	apt-get -y install git node npm
-	npm config set strict-ssl false
-	npm install -g n
-	n stable
-	npm config set strict-ssl true	
+    echo "\n----- Install git, node, npm ------\n"
+    apt-get -y install git node npm
+    npm config set strict-ssl false
+    npm install -g n
+    n stable
+    npm config set strict-ssl true	
   SHELL
 end
