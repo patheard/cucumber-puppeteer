@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.1
+version: v1.19.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-MINIMIST-559764:
@@ -26,6 +26,10 @@ ignore:
     - puppeteer > tar-fs > tar-stream > bl:
         reason: None given
         expires: '2020-09-28T14:43:16.269Z'
+  SNYK-JS-PATHPARSE-1077067:
+    - cucumber > resolve > path-parse:
+        reason: None given
+        expires: '2021-06-07T14:10:19.163Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
